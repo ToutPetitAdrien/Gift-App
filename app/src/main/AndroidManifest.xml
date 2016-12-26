@@ -23,6 +23,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name=".MainActivity"></activity>
+
     </application>
 
 </manifest>

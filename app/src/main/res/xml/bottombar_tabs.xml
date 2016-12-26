@@ -3,7 +3,7 @@
     <tabs>
         <tab
             android:id="@+id/recent_item"
-            android:icon="@drawable/ic_calendar"
+            android:icon="@drawable/ic_cal_2"
             android:title="Evenements"
             />
         <tab
@@ -13,7 +13,7 @@
             />
         <tab
             android:id="@+id/favorite_item"
-            android:icon="@drawable/ic_gift"
+            android:icon="@drawable/ic_gift_2"
             android:title="Mes Idées"
             />
     </tabs>
