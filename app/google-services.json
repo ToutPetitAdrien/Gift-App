@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "963138739152",
+    "firebase_url": "https://gift-app-fd6d4.firebaseio.com",
+    "project_id": "gift-app-fd6d4",
+    "storage_bucket": "gift-app-fd6d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963138739152:android:58fc99c5ca6dedbc",
+        "android_client_info": {
+          "package_name": "com.example.adrien.gift_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963138739152-68qka2hr85lh64hbjcqaelq0fnusru55.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adrien.gift_app",
+            "certificate_hash": "E1E78B80EBF5375FD945C862E61234CE30F81E39"
+          }
+        },
+        {
+          "client_id": "963138739152-8udu1mo8c9ic4aapsvqbo5osuc1h91vi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWxrSA-15QXNjOu7U2jocOd5NXUnbrbfc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963138739152-8udu1mo8c9ic4aapsvqbo5osuc1h91vi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
