@@ -68,6 +68,10 @@ public class FacebookLoginActivity extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    String name = user.getDisplayName();
+                    String email = user.getEmail();
+                    
+
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
