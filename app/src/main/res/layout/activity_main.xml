@@ -18,6 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="android.support.v4.app.ListFragment"
+                android:id="@+id/fragment" />
         </FrameLayout>
 
         <android.support.design.widget.TabLayout
