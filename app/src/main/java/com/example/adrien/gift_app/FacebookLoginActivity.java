@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -68,10 +69,6 @@ public class FacebookLoginActivity extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    String name = user.getDisplayName();
-                    String email = user.getEmail();
-                    
-
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -130,4 +127,6 @@ public class FacebookLoginActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 }
