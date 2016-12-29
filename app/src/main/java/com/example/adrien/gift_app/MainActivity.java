@@ -26,13 +26,17 @@ public class MainActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         Log.d("MainActivity","hello: "+ user.getUid());
 
-        Idea idea = new Idea("pCreatedBy", "pTitle", 20, "pUrl", "pPhoto", "pDescription", "pDestinataire");
-
-        mDatabase.child("ideas").setValue(idea);
-
-
-
+        Idea idea = new Idea();
+        idea.setCreatedBy("Adrien");
+        idea.setTitle("PS4");
+        idea.setPrice(400);
+        idea.setDescription("Un kdo de l'enfer !");
+        idea.setUrl("http:// Un URL");
+        idea.setPhoto("Une photo trop belle");
+        idea.setRecipient("Océane");
+        idea.addToFirebase(user.getUid(), mDatabase);
     }
+
 }
 
 

@@ -2,8 +2,11 @@ package com.example.adrien.gift_app;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Adrien on 28/12/2016.
@@ -11,52 +14,90 @@ import java.net.URI;
 
 public class Idea {
 
-    public String title;
-    public int price;
-    public String url;
-    public String photo;
-    public String description;
-    public String recipient;
-    public String createdBy;
+    private String title;
+    private int price;
+    private String url;
+    private String photo;
+    private String description;
+    private String recipient;
+    private String createdBy;
 
     public Idea(){
 
     }
 
-    public Idea(String pCreatedBy, String pTitle, int pPrix, String pUrl, String pPhoto, String pDescription, String pDestinataire){
-
-        this.title = pTitle;
-        this.price = pPrix;
-        this.url = pUrl;
-        this.photo = pPhoto;
-        this.description = pDescription;
-        this.recipient = pDestinataire;
-        this.createdBy = pCreatedBy;
-    }
-
-
-
-    private String getTitle(){
+    public String getTitle(){
         return this.title;
     }
 
-    private int getPrice(){
+    public int getPrice(){
         return this.price;
     }
 
-    private String getUrl(){
+    public String getUrl(){
         return this.url;
     }
 
-    private String getPhoto(){
+    public String getPhoto(){
         return this.photo;
     }
 
-    private String getDescription(){
+    public String getDescription(){
         return this.description;
     }
 
-    private String getRecipient(){
+    public String getRecipient(){
         return this.recipient;
+    }
+
+    public String getCreatedBy(){
+        return this.createdBy;
+    }
+
+    public void setTitle(String pTitle){
+        this.title = pTitle;
+    }
+
+    public void setPrice(int pPrix){
+        this.price = pPrix;
+    }
+
+    public void setUrl(String pUrl){
+        this.url = pUrl;
+    }
+
+    public void setPhoto(String pPhoto){
+        this.photo = pPhoto;
+    }
+
+    public void setDescription(String pDescription){
+        this.description = pDescription;
+    }
+
+    public void setRecipient(String pRecipient){
+        this.recipient = pRecipient;
+    }
+
+    public void setCreatedBy(String pCreatedBy){
+        this.createdBy = pCreatedBy;
+    }
+
+    public void addToFirebase(String userId, DatabaseReference mDatabase){
+        String key = mDatabase.child("ideas").push().getKey();
+
+        HashMap<String, Object> ideaValues = new HashMap<>();
+        ideaValues.put("CreatedBy", userId);
+        ideaValues.put("Recipient", this.recipient);
+        ideaValues.put("Title", this.title);
+        ideaValues.put("Price", this.price);
+        ideaValues.put("Url", this.url);
+        ideaValues.put("Photo", this.photo);
+        ideaValues.put("Description", this.description);
+
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put("/ideas/" + key, ideaValues);
+
+        mDatabase.updateChildren(childUpdates);
+
     }
 }
