@@ -32,7 +32,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            app:tabIndicatorColor="@android:color/holo_blue_dark">
+            app:tabIndicatorColor="@android:color/holo_blue_dark"
+            android:id="@+id/id_tab">
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
