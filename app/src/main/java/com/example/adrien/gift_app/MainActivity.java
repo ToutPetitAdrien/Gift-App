@@ -2,12 +2,16 @@ package com.example.adrien.gift_app;
 
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final TabLayout navbar = (TabLayout)findViewById(R.id.id_tab);
-        Log.d("MainActivity", "Hello :" + navbar);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -35,8 +38,12 @@ public class MainActivity extends AppCompatActivity {
         navbar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                FragmentManager fm = getSupportFragmentManager();
+                final FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 switch(navbar.getSelectedTabPosition()) {
                     case 0:
+                        Fragment addIdeasFragment = new IdeasFormFragment();
+                        fragmentTransaction.replace(R.id.id_frame, addIdeasFragment);
                         Log.d("MainActivity", "Hello : c'est la case 1");
                         break;
                     case 1:
@@ -48,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         Log.d("MainActivity", "Hello : c'est un test");
                 }
+                fragmentTransaction.commit();
             }
 
             @Override
@@ -57,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                
             }
         });
 

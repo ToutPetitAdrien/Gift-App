@@ -1,6 +1,7 @@
 package com.example.adrien.gift_app;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,11 @@ public class IdeasFormFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ideas_form_fragment, container, false);
 
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -44,12 +50,9 @@ public class IdeasFormFragment extends Fragment {
                 newIdea.setDescription(textDescription.getText().toString());
                 newIdea.setUrl(textUrl.getText().toString());
                 newIdea.setPhoto(textPhoto.getText().toString());
-               // newIdea.setPrice((Integer)textPrice.getText().toString());
+                // newIdea.setPrice((Integer)textPrice.getText().toString());
                 newIdea.addToFirebase(user.getUid(), mDatabase);
             }
         });
-        return view;
     }
-
-
 }

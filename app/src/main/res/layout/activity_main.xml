@@ -15,14 +15,9 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <fragment android:name="com.example.adrien.gift_app.IdeasFormFragment"
-                android:id="@+id/ideas_form_fragment"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/id_frame">
 
         </FrameLayout>
 
