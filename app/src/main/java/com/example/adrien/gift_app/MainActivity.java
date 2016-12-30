@@ -1,6 +1,5 @@
 package com.example.adrien.gift_app;
 
-import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,10 +7,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
                 final FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 switch(navbar.getSelectedTabPosition()) {
                     case 0:
-                        Fragment addIdeasFragment = new IdeasFormFragment();
-                        fragmentTransaction.replace(R.id.id_frame, addIdeasFragment);
                         Log.d("MainActivity", "Hello : c'est la case 1");
                         break;
                     case 1:
+                        Fragment addIdeasFragment = new IdeasFormFragment();
+                        fragmentTransaction.replace(R.id.id_frame, addIdeasFragment);
                         Log.d("MainActivity", "Hello : c'est la case 2");
                         break;
                     case 2:
