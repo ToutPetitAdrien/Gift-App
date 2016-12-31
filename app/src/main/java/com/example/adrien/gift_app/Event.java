@@ -50,11 +50,10 @@ public class Event {
         eventValues.put("CreatedBy", userId);
         eventValues.put("Title", this.title);
         eventValues.put("Date", this.date);
-        
+
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/events/" + key, eventValues);
 
         mDatabase.updateChildren(childUpdates);
-
     }
 }

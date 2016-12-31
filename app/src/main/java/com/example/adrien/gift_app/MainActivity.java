@@ -37,15 +37,14 @@ public class MainActivity extends AppCompatActivity {
                 final FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 switch(navbar.getSelectedTabPosition()) {
                     case 0:
-                        Log.d("MainActivity", "Hello : c'est la case 1");
+                        Fragment listEventsFragment = new EventsFragment();
+                        fragmentTransaction.replace(R.id.id_frame, listEventsFragment);
                         break;
                     case 1:
                         Fragment addIdeasFragment = new IdeasFormFragment();
                         fragmentTransaction.replace(R.id.id_frame, addIdeasFragment);
-                        Log.d("MainActivity", "Hello : c'est la case 2");
                         break;
                     case 2:
-                        Log.d("MainActivity", "Hello : c'est la case 3");
                         break;
                     default:
                         Log.d("MainActivity", "Hello : c'est un test");
