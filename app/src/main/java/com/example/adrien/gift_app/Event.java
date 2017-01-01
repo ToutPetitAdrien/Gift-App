@@ -14,9 +14,14 @@ public class Event {
     private String title;
     private String date;
     private String place;
+    private String createdBy;
 
     public Event(){
 
+    }
+
+    public String getCreatedBy() {
+        return this.createdBy;
     }
 
     public String getTitle(){
@@ -47,9 +52,10 @@ public class Event {
         String key = mDatabase.child("events").push().getKey();
 
         HashMap<String, Object> eventValues = new HashMap<>();
-        eventValues.put("CreatedBy", userId);
-        eventValues.put("Title", this.title);
-        eventValues.put("Date", this.date);
+        eventValues.put("createdBy", userId);
+        eventValues.put("title", this.title);
+        eventValues.put("date", this.date);
+        eventValues.put("place", this.place);
 
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/events/" + key, eventValues);

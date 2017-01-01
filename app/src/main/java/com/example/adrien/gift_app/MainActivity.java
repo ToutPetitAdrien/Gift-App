@@ -66,36 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mDatabase.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Log.d("EventsFragment", "onChildAdded:"+ dataSnapshot.getKey());
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                Log.d("EventsFragment", "onChildChanged:"+ dataSnapshot.getKey());
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                Log.d("EventsFragment", "onChildRemoved:"+ dataSnapshot.getKey());
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                Log.d("EventsFragment", "onChildMoved:"+ dataSnapshot.getKey());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
     }
-
-
 
 }
 

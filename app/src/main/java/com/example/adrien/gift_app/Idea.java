@@ -78,10 +78,6 @@ public class Idea {
         this.recipient = pRecipient;
     }
 
-    public void setCreatedBy(String pCreatedBy){
-        this.createdBy = pCreatedBy;
-    }
-
     public void addToFirebase(String userId, DatabaseReference mDatabase){
         String key = mDatabase.child("ideas").push().getKey();
 
