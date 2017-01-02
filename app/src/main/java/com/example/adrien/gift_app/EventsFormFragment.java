@@ -10,11 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class EventsFormFragment extends Fragment {
 
@@ -44,10 +50,19 @@ public class EventsFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Event newEvent = new Event();
-                newEvent.setTitle(textTitle.getText().toString());
-                newEvent.setDate(textDate.getText().toString());
-                newEvent.setPlace(textPlace.getText().toString());
-                newEvent.addToFirebase(user.getUid(), mDatabase);
+                DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+                try {
+                    Date dateObject = formatter.parse(textDate.getText().toString());
+                    newEvent.setTitle(textTitle.getText().toString());
+                    newEvent.setDate(dateObject);
+                    newEvent.setPlace(textPlace.getText().toString());
+                    newEvent.addToFirebase(user.getUid(), mDatabase);
+                } catch (ParseException e){
+                    Toast.makeText(getActivity(), "La date n'est pas au bon format", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
 
@@ -59,4 +74,5 @@ public class EventsFormFragment extends Fragment {
         });
 
     }
+
 }

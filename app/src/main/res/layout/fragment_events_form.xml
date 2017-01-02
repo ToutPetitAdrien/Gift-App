@@ -18,16 +18,18 @@
             android:ems="10"
             android:id="@+id/editText_title_event"
             android:hint="Titre"
-            android:textColorHint="@android:color/darker_gray" />
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editText_date_event"
-            android:hint="Date"
-            android:textColorHint="@android:color/darker_gray" />
+            android:hint="Date dd/MM/yyyy"
+            android:textColorHint="@android:color/darker_gray"
+            android:inputType="date"
+            android:textColor="@android:color/black" />
 
         <EditText
             android:layout_width="match_parent"
@@ -36,7 +38,8 @@
             android:ems="10"
             android:id="@+id/editText_place_event"
             android:hint="Lieu"
-            android:textColorHint="@android:color/darker_gray" />
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black" />
 
         <Button
             android:text="Ajouter"

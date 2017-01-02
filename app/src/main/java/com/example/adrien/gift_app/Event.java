@@ -2,6 +2,7 @@ package com.example.adrien.gift_app;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import java.util.Map;
 public class Event {
 
     private String title;
-    private String date;
+    private Date date;
     private String place;
     private String createdBy;
 
@@ -28,7 +29,7 @@ public class Event {
         return this.title;
     }
 
-    public String getDate(){
+    public Date getDate(){
         return this.date;
     }
 
@@ -44,7 +45,7 @@ public class Event {
         this.place = pPlace;
     }
 
-    public void setDate(String pDate){
+    public void setDate(Date pDate){
         this.date = pDate;
     }
 

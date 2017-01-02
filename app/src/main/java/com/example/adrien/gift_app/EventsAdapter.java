@@ -32,7 +32,7 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         TextView tvPlace = (TextView)convertView.findViewById(R.id.textView_Place);
 
         tvTitle.setText(event.getTitle());
-        tvDate.setText(event.getDate());
+        tvDate.setText(event.getDate().toString());
         tvPlace.setText(event.getPlace());
 
         return convertView;
