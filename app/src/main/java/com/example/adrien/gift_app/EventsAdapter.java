@@ -10,16 +10,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Adrien on 01/01/2017.
- */
 
 public class EventsAdapter extends ArrayAdapter<Event> {
     public EventsAdapter(Context context, ArrayList<Event> events){
         super(context, 0, events);
     }
 
-    @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -34,6 +30,7 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         tvTitle.setText(event.getTitle());
         tvDate.setText(event.getDate().toString());
         tvPlace.setText(event.getPlace());
+        //test
 
         return convertView;
     }
