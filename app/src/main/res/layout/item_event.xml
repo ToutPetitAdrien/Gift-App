@@ -1,65 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:padding="15dp"
+    android:layout_height="wrap_content">
 
-    <FrameLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="10dp"
-        android:elevation="1dp"
-        android:background="@android:color/background_light">
+        android:layout_height="match_parent"
+        android:background="@drawable/eventcard_shape"
+        android:padding="15dp">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/eventcard_shape">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:paddingRight="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TextView
+                android:text="31"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="54dp"
+                android:id="@+id/textView9"
+                android:textSize="55sp"
+                android:textColor="@android:color/white"
+                android:autoText="false"
+                android:gravity="center_horizontal"
+                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"></LinearLayout>
+            <TextView
+                android:text="Sept."
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView8"
+                android:gravity="center_vertical|center_horizontal"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+        </LinearLayout>
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"></LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </FrameLayout>
-    </FrameLayout>
+        <View
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/divider" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_Place"
-        android:textColor="@android:color/black" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_Date"
-        android:textColor="@android:color/black" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView15"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:text="Un gros évènement sa mère qui pète"
+                android:paddingBottom="10dp" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_Title"
-        android:textColor="@android:color/black" />
-</LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView15"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:text="à Ce genre de lieu trop bien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView17"
+                    android:textColor="@android:color/white"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_toLeftOf="@+id/imageView5"
+                    android:layout_toStartOf="@+id/imageView5"
+                    android:paddingRight="10dp"
+                    android:textStyle="italic" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    app:srcCompat="@drawable/cancelButton2"
+                    android:id="@+id/imageView5"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentRight="false"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
