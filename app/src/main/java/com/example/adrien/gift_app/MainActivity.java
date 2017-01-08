@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        Log.d("MainActivity","hello: "+ user.getUid());
 
         navbar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

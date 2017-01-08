@@ -76,7 +76,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     app:srcCompat="@drawable/cancelbutton"
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imageView_cancelButton"
                     android:layout_height="20dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"

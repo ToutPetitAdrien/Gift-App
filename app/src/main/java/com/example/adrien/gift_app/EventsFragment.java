@@ -26,6 +26,7 @@ public class EventsFragment extends Fragment {
 
     private DatabaseReference mDatabase;
     private FirebaseUser user;
+    private EventsAdapter adapter;
 
         @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,19 +57,21 @@ public class EventsFragment extends Fragment {
         });
 
         ArrayList<Event> arrayOfEvents = new ArrayList<Event>();
-        final EventsAdapter adapter = new EventsAdapter(this.getContext(), arrayOfEvents);
-        ListView listView = (ListView) view.findViewById(R.id.id_ListView_Events);
+        adapter = new EventsAdapter(this.getContext(), arrayOfEvents);
+        final ListView listView = (ListView) view.findViewById(R.id.id_ListView_Events);
         listView.setAdapter(adapter);
 
 
         mDatabase.child("events").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Log.d("EventsFragment", "onChildAdded:"+ dataSnapshot.getValue(Event.class).getTitle());
+                Log.d("EventsFragment", "onChildAdded:"+ dataSnapshot.getKey());
                 Event newEvent = dataSnapshot.getValue(Event.class);
+                newEvent.setKey(dataSnapshot.getKey());
 
                 if(user.getUid().equals(newEvent.getCreatedBy())){
                     adapter.add(newEvent);
+
                 }
             }
 
@@ -97,5 +100,6 @@ public class EventsFragment extends Fragment {
 
             }
         });
+
     }
 }

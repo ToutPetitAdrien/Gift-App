@@ -1,5 +1,7 @@
 package com.example.adrien.gift_app;
 
+import android.util.Log;
+
 import com.google.firebase.database.DatabaseReference;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +13,7 @@ public class Event {
     private String place;
     private String createdBy;
     private int month;
+    private String key;
 
     public Event(){
 
@@ -34,6 +37,14 @@ public class Event {
 
     public String getPlace(){
         return this.place;
+    }
+
+    public String getKey(){
+        return this.key;
+    }
+
+    public void setKey(String pKey){
+        this.key = pKey;
     }
 
     public void setTitle(String pTitle){
@@ -65,5 +76,9 @@ public class Event {
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/events/" + key, eventValues);
         mDatabase.updateChildren(childUpdates);
+    }
+
+    public void removeFromFirebase(DatabaseReference mDatabase){
+        mDatabase.child("events").child(this.key).removeValue();
     }
 }
