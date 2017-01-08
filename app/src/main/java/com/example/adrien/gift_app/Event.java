@@ -1,21 +1,16 @@
 package com.example.adrien.gift_app;
 
 import com.google.firebase.database.DatabaseReference;
-
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-/**
- * Created by Adrien on 30/12/2016.
- */
 
 public class Event {
 
     private String title;
-    private Date date;
+    private int day;
     private String place;
     private String createdBy;
+    private int month;
 
     public Event(){
 
@@ -29,8 +24,12 @@ public class Event {
         return this.title;
     }
 
-    public Date getDate(){
-        return this.date;
+    public int getDay(){
+        return this.day;
+    }
+
+    public int getMonth(){
+        return this.month;
     }
 
     public String getPlace(){
@@ -45,8 +44,12 @@ public class Event {
         this.place = pPlace;
     }
 
-    public void setDate(Date pDate){
-        this.date = pDate;
+    public void setDay(int pDay){
+        this.day = pDay;
+    }
+
+    public void setMonth(int pMonth){
+        this.month = pMonth;
     }
 
     public void addToFirebase(String userId, DatabaseReference mDatabase){
@@ -55,12 +58,12 @@ public class Event {
         HashMap<String, Object> eventValues = new HashMap<>();
         eventValues.put("createdBy", userId);
         eventValues.put("title", this.title);
-        eventValues.put("date", this.date);
+        eventValues.put("day", this.day);
+        eventValues.put("month", this.month);
         eventValues.put("place", this.place);
 
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/events/" + key, eventValues);
-
         mDatabase.updateChildren(childUpdates);
     }
 }

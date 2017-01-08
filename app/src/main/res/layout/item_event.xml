@@ -22,24 +22,24 @@
             android:layout_gravity="center_vertical">
 
             <TextView
-                android:text="31"
+                android:text="24"
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:id="@+id/textView9"
-                android:textSize="55sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_day"
+                android:textSize="30sp"
                 android:textColor="@android:color/white"
                 android:autoText="false"
-                android:gravity="center_horizontal"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:gravity="center_horizontal" />
 
             <TextView
                 android:text="Sept."
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/textView8"
+                android:id="@+id/textView_month"
                 android:gravity="center_vertical|center_horizontal"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -60,42 +60,40 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView15"
+                android:id="@+id/textView_titleEvent"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:text="Un gros évènement sa mère qui pète"
                 android:paddingBottom="10dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView15"
+                android:layout_below="@+id/textView_titleEvent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true">
 
-                <TextView
-                    android:text="à Ce genre de lieu trop bien"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView17"
-                    android:textColor="@android:color/white"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_toLeftOf="@+id/imageView5"
-                    android:layout_toStartOf="@+id/imageView5"
-                    android:paddingRight="10dp"
-                    android:textStyle="italic" />
-
                 <ImageView
                     android:layout_width="20dp"
-                    app:srcCompat="@drawable/cancelButton2"
+                    app:srcCompat="@drawable/cancelbutton"
                     android:id="@+id/imageView5"
                     android:layout_height="20dp"
-                    android:layout_alignParentTop="false"
-                    android:layout_alignParentRight="false"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true" />
+
+                <TextView
+                    android:text="à Ce genre de lieu trop bien eu trop bien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView_placeEvent"
+                    android:textColor="@android:color/white"
+                    android:paddingRight="10dp"
+                    android:textStyle="italic"
+                    android:textSize="10sp"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
             </RelativeLayout>
 

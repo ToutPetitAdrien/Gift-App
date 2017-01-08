@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:id="@+id/editText_date_event"
-            android:hint="Date dd/MM/yyyy"
+            android:hint="Date dd/MM/yyyy (double cliquer)"
             android:textColorHint="@android:color/darker_gray"
             android:inputType="date"
             android:textColor="@android:color/black" />

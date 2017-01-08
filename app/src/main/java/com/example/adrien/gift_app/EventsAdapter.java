@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 
@@ -22,15 +21,52 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_event, parent, false);
         }
-        TextView tvTitle = (TextView)convertView.findViewById(R.id.textView_Title);
-        TextView tvDate = (TextView)convertView.findViewById(R.id.textView_Date);
-        TextView tvPlace = (TextView)convertView.findViewById(R.id.textView_Place);
+        TextView tvDay = (TextView)convertView.findViewById(R.id.textView_day);
+        TextView tvMonth = (TextView)convertView.findViewById(R.id.textView_month);
+        TextView tvTitle = (TextView)convertView.findViewById(R.id.textView_titleEvent);
+        TextView tvPlace = (TextView)convertView.findViewById(R.id.textView_placeEvent);
 
         tvTitle.setText(event.getTitle());
-        tvDate.setText(event.getDate().toString());
-        tvPlace.setText(event.getPlace());
-        //test
-
+        tvDay.setText(event.getDay()+"");
+        tvPlace.setText("à " +event.getPlace());
+        switch (event.getMonth()){
+            case 0:
+                tvMonth.setText("Janv.");
+                break;
+            case 1:
+                tvMonth.setText("Fevr.");
+                break;
+            case 2:
+                tvMonth.setText("Mars");
+                break;
+            case 3:
+                tvMonth.setText("Avril");
+                break;
+            case 4:
+                tvMonth.setText("Mai");
+                break;
+            case 5:
+                tvMonth.setText("Juin");
+                break;
+            case 6:
+                tvMonth.setText("Juil");
+                break;
+            case 7:
+                tvMonth.setText("Août");
+                break;
+            case 8:
+                tvMonth.setText("Sept.");
+                break;
+            case 9:
+                tvMonth.setText("Octob.");
+                break;
+            case 10:
+                tvMonth.setText("Nov.");
+                break;
+            case 11:
+                tvMonth.setText("Dec.");
+                break;
+        }
         return convertView;
     }
 }
