@@ -21,6 +21,7 @@ public class Idea {
     private String description;
     private String recipient;
     private String createdBy;
+    private String forWhen;
 
     public Idea(){
 
@@ -52,6 +53,14 @@ public class Idea {
 
     public String getCreatedBy(){
         return this.createdBy;
+    }
+
+    public String getForWhen(){
+        return this.forWhen;
+    }
+
+    public void setForWhen(String pForWhen){
+        this.forWhen = pForWhen;
     }
 
     public void setTitle(String pTitle){
@@ -89,6 +98,7 @@ public class Idea {
         ideaValues.put("Url", this.url);
         ideaValues.put("Photo", this.photo);
         ideaValues.put("Description", this.description);
+        ideaValues.put("ForWhen", this.forWhen);
 
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/ideas/" + key, ideaValues);

@@ -59,7 +59,23 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                
+                FragmentManager fm = getSupportFragmentManager();
+                final FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                switch(navbar.getSelectedTabPosition()) {
+                    case 0:
+                        Fragment listEventsFragment = new EventsFragment();
+                        fragmentTransaction.replace(R.id.id_frame, listEventsFragment);
+                        break;
+                    case 1:
+                        Fragment addIdeasFragment = new IdeasFormFragment();
+                        fragmentTransaction.replace(R.id.id_frame, addIdeasFragment);
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        Log.d("MainActivity", "Hello : c'est un test");
+                }
+                fragmentTransaction.commit();
             }
         });
 

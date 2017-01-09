@@ -63,6 +63,13 @@
                 android:hint="Pour qui ?"
                 android:textColorHint="@android:color/darker_gray" />
 
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/autoCompleteText_forwhen"
+                android:hint="Pour quand ?"
+                android:textColorHint="@android:color/darker_gray" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
