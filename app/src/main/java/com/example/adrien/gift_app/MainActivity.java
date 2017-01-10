@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.id_frame, addIdeasFragment);
                         break;
                     case 2:
+                        Fragment addIdeasListFragment = new IdeasListFragment();
+                        fragmentTransaction.replace(R.id.id_frame, addIdeasListFragment);
                         break;
                     default:
                         Log.d("MainActivity", "Hello : c'est un test");
