@@ -11,6 +11,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:fontFamily="Open Sans"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:text="MES EVENTS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textSize="30sp"
+                    android:paddingTop="15dp"
+                    android:textColor="#00B1FF"
+                    android:paddingBottom="10dp" />
+
+                <View
+                    android:layout_height="3dp"
+                    android:background="@drawable/underline"
+                    android:layout_gravity="right"
+                    android:layout_width="130dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
