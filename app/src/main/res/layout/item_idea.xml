@@ -17,9 +17,131 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="60dp"
-            android:layout_height="60dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/ic_gift_2"
+                android:id="@+id/id_imageView"
+                android:background="@android:color/white" />
+
+            <TextView
+                android:text="Un certain kdo que je ne te dirais pas !"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textView4"
+                android:paddingLeft="15dp"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="15dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_user"
+                android:id="@+id/imageView2" />
+
+            <TextView
+                android:text="Océane la plus belle des femmes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView6"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@android:color/white"
+                android:maxWidth="150dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_clock"
+                android:id="@+id/imageView3"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+            android:text="31/01/2017"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:paddingLeft="15dp"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="15dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_share"
+                android:id="@+id/imageView4" />
+
+            <TextView
+                android:text="https://amour-infini.com"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
+                android:paddingLeft="15dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="15dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_euro"
+                android:id="@+id/imageView5" />
+
+            <TextView
+                android:text="300 000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="15dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_chat"
+                android:id="@+id/imageView6" />
+
+            <TextView
+                android:text="Hehe t'as cru que j'allais te mettre ton kdo ;)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView10"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

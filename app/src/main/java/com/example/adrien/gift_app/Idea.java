@@ -22,6 +22,7 @@ public class Idea {
     private String recipient;
     private String createdBy;
     private String forWhen;
+    private String key;
 
     public Idea(){
 
@@ -57,6 +58,14 @@ public class Idea {
 
     public String getForWhen(){
         return this.forWhen;
+    }
+
+    public String getKey(){
+        return this.key;
+    }
+
+    public void setKey(String pKey){
+        this.key = pKey;
     }
 
     public void setForWhen(String pForWhen){

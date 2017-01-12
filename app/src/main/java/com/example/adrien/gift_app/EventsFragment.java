@@ -71,7 +71,6 @@ public class EventsFragment extends Fragment {
 
                 if(user.getUid().equals(newEvent.getCreatedBy())){
                     adapter.add(newEvent);
-
                 }
             }
 

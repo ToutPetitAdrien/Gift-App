@@ -42,13 +42,23 @@
 
         </RelativeLayout>
 
-        <FrameLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/id_fragment_searchideas"
-            android:background="@color/cardview_shadow_start_color">
+            android:layout_below="@+id/linearLayout"
+            android:background="@color/cardview_dark_background">
 
-        </FrameLayout>
+            <SearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/id_searchview_ideas" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/id_listview_ideas" />
+        </LinearLayout>
 
     </LinearLayout>
 
