@@ -2,6 +2,8 @@ package com.example.adrien.gift_app;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,16 +23,19 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
     private DatabaseReference mDatabase;
     private Idea idea;
     private ArrayList<Idea> ideasArray;
+    private ArrayList<Idea> ideasArrayFilter;
 
     public IdeasAdapter(Context context, ArrayList<Idea> ideas){
 
         super(context, 0, ideas);
         this.ideasArray = ideas;
+        this.ideasArrayFilter = ideas;
     }
 
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Log.d("IdeasAdapter", "Coucou de getView");
 
         idea = getItem(position);
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -55,35 +60,56 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
 
         return convertView;
     }
-//
-//    @Override
-//    public Filter getFilter() {
-//        return new Filter() {
-//            @Override
-//            protected FilterResults performFiltering(CharSequence constraint) {
-//                FilterResults results = new FilterResults();
-//                ArrayList<Idea> FilteredArrayIdeas = new ArrayList<Idea>();
-//
-//                constraint = constraint.toString().toLowerCase();
-//                for(int i=0; i < ideasArray.size(); i++){
-//                    Idea ideaCursor = ideasArray.get(i);
-//                    if(ideaCursor.getTitle().toLowerCase().startsWith(constraint.toString())){
-//                        FilteredArrayIdeas.add(ideaCursor);
-//                    }
-//                }
-//
-//                results.count = FilteredArrayIdeas.size();
-//                results.values = FilteredArrayIdeas;
-//
-//                return results;
-//            }
-//
-//            @Override
-//            protected void publishResults(CharSequence constraint, FilterResults results) {
-//                ideasArray = (ArrayList<Idea>)results.values;
-//                notifyDataSetChanged();
-//            }
-//        };
-//
-//    }
+
+    @Nullable
+    @Override
+    public Idea getItem(int position) {
+        return ideasArray.get(position);
+    }
+
+    @Override
+    public int getCount() {
+        return ideasArray.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                Log.d("IdeasAdapter", "Coucou de getFilter performFiltering");
+                FilterResults results = new FilterResults();
+                ArrayList<Idea> FilteredArrayIdeas = new ArrayList<Idea>();
+
+                if(constraint == null || constraint.length() == 0){
+                    results.count = ideasArrayFilter.size();
+                    results.values = ideasArrayFilter;
+                } else {
+                    constraint = constraint.toString().toLowerCase();
+                    for(int i=0; i < ideasArray.size(); i++){
+                        Log.d("IdeasAdapter", "Coucou de getFilter performFiltering loop");
+                        Idea ideaCursor = ideasArray.get(i);
+                        if(ideaCursor.getTitle().toLowerCase().startsWith(constraint.toString())){
+                            FilteredArrayIdeas.add(ideaCursor);
+                        }
+                    }
+                    results.count = FilteredArrayIdeas.size();
+                    results.values = FilteredArrayIdeas;
+                }
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                Log.d("IdeasAdapter", "Coucou de getFilter publishResults");
+                if(results.count != 0){
+
+                    ideasArray = (ArrayList<Idea>)results.values;
+                    notifyDataSetChanged();
+                }
+
+            }
+        };
+
+    }
 }

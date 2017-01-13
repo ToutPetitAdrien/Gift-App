@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +30,6 @@ public class IdeasListFragment extends Fragment {
 
     private DatabaseReference mDatabase;
     private FirebaseUser user;
-    ListView lv;
-    SearchView sv;
-    String[] teams={"Man Utd", "Man City", "Chelsea", "Arsenal", "Liverpool", "Tottenham"};
     IdeasAdapter adapter;
 
     @Override
@@ -90,18 +88,19 @@ public class IdeasListFragment extends Fragment {
             }
         });
 
-//        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                adapter.getFilter().filter(newText);
-//                return false;
-//            }
-//        });
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Log.d("IdeasListFragment", "Coucou de setOnQueryTextListener");
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
 }
 
