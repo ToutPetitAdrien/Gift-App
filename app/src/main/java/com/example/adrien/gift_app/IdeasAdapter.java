@@ -77,7 +77,6 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
         return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
-                Log.d("IdeasAdapter", "Coucou de getFilter performFiltering");
                 FilterResults results = new FilterResults();
                 ArrayList<Idea> FilteredArrayIdeas = new ArrayList<Idea>();
 
@@ -87,7 +86,6 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
                 } else {
                     constraint = constraint.toString().toLowerCase();
                     for(int i=0; i < ideasArray.size(); i++){
-                        Log.d("IdeasAdapter", "Coucou de getFilter performFiltering loop");
                         Idea ideaCursor = ideasArray.get(i);
                         if(ideaCursor.getTitle().toLowerCase().startsWith(constraint.toString())){
                             FilteredArrayIdeas.add(ideaCursor);
@@ -101,7 +99,6 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-                Log.d("IdeasAdapter", "Coucou de getFilter publishResults");
                 if(results.count != 0){
 
                     ideasArray = (ArrayList<Idea>)results.values;

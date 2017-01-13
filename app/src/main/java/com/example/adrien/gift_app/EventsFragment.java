@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class EventsFragment extends Fragment {
 
@@ -61,6 +62,11 @@ public class EventsFragment extends Fragment {
         final ListView listView = (ListView) view.findViewById(R.id.id_ListView_Events);
         listView.setAdapter(adapter);
 
+        Calendar calendar = Calendar.getInstance();
+        final int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+        final int currentMonth = calendar.get(Calendar.MONTH);
+        final int currentYear = calendar.get(Calendar.YEAR);
+
 
         mDatabase.child("events").addChildEventListener(new ChildEventListener() {
             @Override
@@ -69,7 +75,7 @@ public class EventsFragment extends Fragment {
                 Event newEvent = dataSnapshot.getValue(Event.class);
                 newEvent.setKey(dataSnapshot.getKey());
 
-                if(user.getUid().equals(newEvent.getCreatedBy())){
+                if(user.getUid().equals(newEvent.getCreatedBy()) && newEvent.getDay() >= currentDay && newEvent.getMonth() >= currentMonth && newEvent.getYear() >= currentYear){
                     adapter.add(newEvent);
                 }
             }

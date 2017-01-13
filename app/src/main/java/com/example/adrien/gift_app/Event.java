@@ -13,6 +13,7 @@ public class Event {
     private String place;
     private String createdBy;
     private int month;
+    private int year;
     private String key;
 
     public Event(){
@@ -35,12 +36,20 @@ public class Event {
         return this.month;
     }
 
+    public int getYear(){
+        return this.year;
+    }
+
     public String getPlace(){
         return this.place;
     }
 
     public String getKey(){
         return this.key;
+    }
+
+    public void setYear(int pYear){
+        this.year = pYear;
     }
 
     public void setKey(String pKey){
@@ -71,6 +80,7 @@ public class Event {
         eventValues.put("title", this.title);
         eventValues.put("day", this.day);
         eventValues.put("month", this.month);
+        eventValues.put("year", this.year);
         eventValues.put("place", this.place);
 
         Map<String, Object> childUpdates = new HashMap<>();

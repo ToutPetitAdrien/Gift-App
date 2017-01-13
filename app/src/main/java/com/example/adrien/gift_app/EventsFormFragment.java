@@ -75,15 +75,21 @@ public class EventsFormFragment extends Fragment {
         addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Calendar myCurrentCalendar = Calendar.getInstance();
+                Event newEvent = new Event();
+                newEvent.setTitle(textTitle.getText().toString());
+                newEvent.setDay(myCalendar.get(Calendar.DAY_OF_MONTH));
+                newEvent.setMonth(myCalendar.get(Calendar.MONTH));
+                newEvent.setYear(myCalendar.get(Calendar.YEAR));
+                newEvent.setPlace(textPlace.getText().toString());
                 if(textTitle.getText().toString().matches("") || textPlace.getText().toString().matches("") || textDate.getText().toString().matches("")){
                     Toast.makeText(getActivity(),"Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+
+                } else if (newEvent.getDay() < myCurrentCalendar.get(Calendar.DAY_OF_MONTH) && newEvent.getMonth() >= myCurrentCalendar.get(Calendar.MONTH) && newEvent.getYear() >= myCurrentCalendar.get(Calendar.YEAR)){
+                    Toast.makeText(getActivity(),"Vous ne pouvez pas ajouter un évènement dans le passé.", Toast.LENGTH_SHORT).show();
                 } else {
-                    Event newEvent = new Event();
-                    newEvent.setTitle(textTitle.getText().toString());
-                    newEvent.setDay(myCalendar.get(Calendar.DAY_OF_MONTH));
-                    newEvent.setMonth(myCalendar.get(Calendar.MONTH));
-                    newEvent.setPlace(textPlace.getText().toString());
                     newEvent.addToFirebase(user.getUid(), mDatabase);
+                    Toast.makeText(getActivity(),"Evènement ajouté", Toast.LENGTH_SHORT).show();
                 }
             }
         });
