@@ -8,14 +8,11 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Adrien on 28/12/2016.
- */
 
 public class Idea {
 
     private String title;
-    private int price;
+    private String price;
     private String url;
     private String photo;
     private String description;
@@ -32,7 +29,7 @@ public class Idea {
         return this.title;
     }
 
-    public int getPrice(){
+    public String getPrice(){
         return this.price;
     }
 
@@ -76,7 +73,7 @@ public class Idea {
         this.title = pTitle;
     }
 
-    public void setPrice(int pPrix){
+    public void setPrice(String pPrix){
         this.price = pPrix;
     }
 
@@ -100,14 +97,14 @@ public class Idea {
         String key = mDatabase.child("ideas").push().getKey();
 
         HashMap<String, Object> ideaValues = new HashMap<>();
-        ideaValues.put("CreatedBy", userId);
-        ideaValues.put("Recipient", this.recipient);
-        ideaValues.put("Title", this.title);
-        ideaValues.put("Price", this.price);
-        ideaValues.put("Url", this.url);
-        ideaValues.put("Photo", this.photo);
-        ideaValues.put("Description", this.description);
-        ideaValues.put("ForWhen", this.forWhen);
+        ideaValues.put("createdBy", userId);
+        ideaValues.put("recipient", this.recipient);
+        ideaValues.put("title", this.title);
+        ideaValues.put("price", this.price);
+        ideaValues.put("url", this.url);
+        ideaValues.put("photo", this.photo);
+        ideaValues.put("description", this.description);
+        ideaValues.put("forWhen", this.forWhen);
 
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/ideas/" + key, ideaValues);

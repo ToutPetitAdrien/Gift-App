@@ -50,6 +50,8 @@ public class IdeasListFragment extends Fragment {
 //        adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, teams);
 //        lv.setAdapter(adapter);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         ArrayList<Idea> arrayOfIdeas = new ArrayList<Idea>();
         adapter = new IdeasAdapter(this.getContext(), arrayOfIdeas);
         final ListView listView = (ListView)view.findViewById(R.id.id_listview_ideas);
@@ -88,18 +90,18 @@ public class IdeasListFragment extends Fragment {
             }
         });
 
-        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
+//        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                adapter.getFilter().filter(newText);
+//                return false;
+//            }
+//        });
     }
 }
 

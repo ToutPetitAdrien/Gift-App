@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -28,15 +29,25 @@ public class IdeasAdapter extends ArrayAdapter<Idea> {
 
         final Idea idea = getItem(position);
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
-        ImageView imageView = (ImageView)convertView.findViewById(R.id.id_imageView);
-
-
-
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_idea, parent, false);
         }
 
-        return super.getView(position, convertView, parent);
+        ImageView imageView = (ImageView)convertView.findViewById(R.id.id_imageView);
+        TextView tvTitle = (TextView)convertView.findViewById(R.id.id_ideatitle);
+        TextView tvRecipient = (TextView)convertView.findViewById(R.id.id_idearecipient);
+        TextView tvDate = (TextView)convertView.findViewById(R.id.id_ideadate);
+        TextView tvUrl = (TextView)convertView.findViewById(R.id.id_ideaurl);
+        TextView tvPrice = (TextView)convertView.findViewById(R.id.id_ideaprice);
+        TextView tvDescription = (TextView)convertView.findViewById(R.id.id_ideadescription);
+
+        tvTitle.setText(idea.getTitle());
+        tvDate.setText(idea.getForWhen());
+        tvUrl.setText(idea.getUrl());
+        tvRecipient.setText(idea.getRecipient());
+        tvPrice.setText(idea.getPrice());
+        tvDescription.setText(idea.getDescription());
+
+        return convertView;
     }
 }

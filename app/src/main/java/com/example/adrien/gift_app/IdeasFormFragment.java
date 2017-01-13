@@ -85,7 +85,8 @@ public class IdeasFormFragment extends Fragment {
                 newIdea.setDescription(textDescription.getText().toString());
                 newIdea.setUrl(textUrl.getText().toString());
                 newIdea.setPhoto(textPhoto.getText().toString());
-                // newIdea.setPrice((Integer)textPrice.getText().toString());
+                newIdea.setPrice(textPrice.getText().toString());
+                newIdea.setForWhen(textForWhen.getText().toString());
                 newIdea.addToFirebase(user.getUid(), mDatabase);
             }
         });
