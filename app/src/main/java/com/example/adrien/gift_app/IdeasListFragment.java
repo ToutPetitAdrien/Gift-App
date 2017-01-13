@@ -46,7 +46,7 @@ public class IdeasListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
 //        ListView lv = (ListView)view.findViewById(R.id.id_listview_ideas);
-//        SearchView sv = (SearchView)view.findViewById(R.id.id_searchview_ideas);
+        SearchView sv = (SearchView)view.findViewById(R.id.id_searchview_ideas);
 //        adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, teams);
 //        lv.setAdapter(adapter);
 

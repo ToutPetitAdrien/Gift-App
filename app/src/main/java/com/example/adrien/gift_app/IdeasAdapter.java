@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,20 +16,23 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class IdeasAdapter extends ArrayAdapter<Idea> {
+public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
 
     private DatabaseReference mDatabase;
+    private Idea idea;
+    private ArrayList<Idea> ideasArray;
 
     public IdeasAdapter(Context context, ArrayList<Idea> ideas){
 
         super(context, 0, ideas);
+        this.ideasArray = ideas;
     }
 
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final Idea idea = getItem(position);
+        idea = getItem(position);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_idea, parent, false);
@@ -50,4 +55,35 @@ public class IdeasAdapter extends ArrayAdapter<Idea> {
 
         return convertView;
     }
+//
+//    @Override
+//    public Filter getFilter() {
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence constraint) {
+//                FilterResults results = new FilterResults();
+//                ArrayList<Idea> FilteredArrayIdeas = new ArrayList<Idea>();
+//
+//                constraint = constraint.toString().toLowerCase();
+//                for(int i=0; i < ideasArray.size(); i++){
+//                    Idea ideaCursor = ideasArray.get(i);
+//                    if(ideaCursor.getTitle().toLowerCase().startsWith(constraint.toString())){
+//                        FilteredArrayIdeas.add(ideaCursor);
+//                    }
+//                }
+//
+//                results.count = FilteredArrayIdeas.size();
+//                results.values = FilteredArrayIdeas;
+//
+//                return results;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence constraint, FilterResults results) {
+//                ideasArray = (ArrayList<Idea>)results.values;
+//                notifyDataSetChanged();
+//            }
+//        };
+//
+//    }
 }
