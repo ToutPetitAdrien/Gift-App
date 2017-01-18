@@ -13,8 +13,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
@@ -26,9 +24,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final TabLayout navbar = (TabLayout)findViewById(R.id.id_tab);
-
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        // Manage main fragments in navbar which is a tablayout
 
         navbar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

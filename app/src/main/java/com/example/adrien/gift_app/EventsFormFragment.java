@@ -11,14 +11,13 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class EventsFormFragment extends Fragment {
 
@@ -35,32 +34,30 @@ public class EventsFormFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        // Variables Initalization
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
-
         final EditText textTitle = (EditText)view.findViewById(R.id.editText_title_event);
         final EditText textDate = (EditText)view.findViewById(R.id.editText_date_event);
         final EditText textPlace = (EditText)view.findViewById(R.id.editText_place_event);
+        final Calendar myCalendar = Calendar.getInstance();
         Button addEvent = (Button)view.findViewById(R.id.id_addButton);
         Button cancelEvent = (Button)view.findViewById(R.id.id_cancelButton);
 
-        final Calendar myCalendar = Calendar.getInstance();
+        // Manage Dialog Calendar
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                String myFormat = "dd/MM/yyyy"; //In which you need put here
-                SimpleDateFormat sdf = new SimpleDateFormat(myFormat);
-
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 textDate.setText(sdf.format(myCalendar.getTime()));
             }
-
         };
 
         textDate.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +68,8 @@ public class EventsFormFragment extends Fragment {
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
+
+        // Add Events button
 
         addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,13 +93,13 @@ public class EventsFormFragment extends Fragment {
             }
         });
 
+        // Remove Events button
+
         cancelEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.id_fragment_addEvents)).commit();
             }
         });
-
     }
-
 }

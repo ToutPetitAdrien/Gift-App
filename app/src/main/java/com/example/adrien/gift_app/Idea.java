@@ -12,7 +12,7 @@ import java.util.Map;
 public class Idea {
 
     private String title;
-    private String price;
+    private int price;
     private String url;
     private String photo;
     private String description;
@@ -29,7 +29,7 @@ public class Idea {
         return this.title;
     }
 
-    public String getPrice(){
+    public int getPrice(){
         return this.price;
     }
 
@@ -73,7 +73,7 @@ public class Idea {
         this.title = pTitle;
     }
 
-    public void setPrice(String pPrix){
+    public void setPrice(int pPrix){
         this.price = pPrix;
     }
 
@@ -110,6 +110,5 @@ public class Idea {
         childUpdates.put("/ideas/" + key, ideaValues);
 
         mDatabase.updateChildren(childUpdates);
-
     }
 }

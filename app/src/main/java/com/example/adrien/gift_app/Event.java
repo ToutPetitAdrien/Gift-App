@@ -55,10 +55,6 @@ public class Event {
         return integerdate;
     }
 
-    public void setIntegerdate(int integerdate) {
-        this.integerdate = integerdate;
-    }
-
     public void setYear(int pYear){
         this.year = pYear;
     }

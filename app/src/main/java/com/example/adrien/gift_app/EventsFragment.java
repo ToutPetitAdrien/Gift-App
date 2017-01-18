@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,9 +22,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-
-import java.util.ArrayList;
-import java.util.Calendar;
 
 public class EventsFragment extends Fragment {
 
@@ -41,9 +40,14 @@ public class EventsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        final Button create_event = (Button)view.findViewById(R.id.button_create_event);
+        // Variables Global Initalization
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        final Button create_event = (Button)view.findViewById(R.id.button_create_event);
+        final ListView listView = (ListView) view.findViewById(R.id.id_ListView_Events);
+
+        // Manage event creation
 
         create_event.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,20 +57,23 @@ public class EventsFragment extends Fragment {
                 Fragment addEventFragment = new EventsFormFragment();
                 fragmentTransaction.replace(R.id.id_fragment_addEvents, addEventFragment);
                 fragmentTransaction.commit();
-
                 create_event.setVisibility(View.GONE);
             }
         });
 
+        // Creation event adapter
+
         ArrayList<Event> arrayOfEvents = new ArrayList<Event>();
         adapter = new EventsAdapter(this.getContext(), arrayOfEvents);
-        final ListView listView = (ListView) view.findViewById(R.id.id_ListView_Events);
         listView.setAdapter(adapter);
+
+        // To sort event by date
 
         Calendar calendar = Calendar.getInstance();
         final int currentIntegerDate = calendar.get(Calendar.DAY_OF_MONTH) + 100*calendar.get(Calendar.MONTH) + 10000*calendar.get(Calendar.YEAR);
-
         Query eventsSortedByDate = mDatabase.child("events").orderByChild("integerdate");
+
+        // Update UI when a new event is created
 
         eventsSortedByDate.addChildEventListener(new ChildEventListener() {
             @Override
@@ -79,30 +86,22 @@ public class EventsFragment extends Fragment {
                     adapter.add(newEvent);
                 }
             }
-
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                Log.d("EventsFragment", "onChildChanged:"+ dataSnapshot.getKey());
             }
-
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 Log.d("EventsFragment", "onChildRemoved:"+ dataSnapshot.getValue(Event.class).getTitle());
                 Event newEvent = dataSnapshot.getValue(Event.class);
-
                 if(user.getUid().equals(newEvent.getCreatedBy())){
                     adapter.remove(newEvent);
                 }
             }
-
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                Log.d("EventsFragment", "onChildMoved:"+ dataSnapshot.getKey());
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 

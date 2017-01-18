@@ -27,7 +27,6 @@ public class IdeasFormFragment extends Fragment {
 
     private DatabaseReference mDatabase;
     private FirebaseUser user;
-    private EventsAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,9 +38,9 @@ public class IdeasFormFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
         final EditText textTitle = (EditText)view.findViewById(R.id.editText_title);
         final EditText textRecipient = (EditText)view.findViewById(R.id.editText_recipient);
         final EditText textDescription = (EditText)view.findViewById(R.id.editText_description);
@@ -50,6 +49,8 @@ public class IdeasFormFragment extends Fragment {
         final EditText textPrice = (EditText)view.findViewById(R.id.editText_price);
         final AutoCompleteTextView textForWhen = (AutoCompleteTextView)view.findViewById(R.id.autoCompleteText_forwhen);
         Button submit_button = (Button)view.findViewById(R.id.submit_button);
+
+        // Suggestion event on textForWhen field
 
         final ArrayAdapter<String> autoComplete = new ArrayAdapter<>(this.getContext(),android.R.layout.simple_list_item_1);
 
@@ -66,7 +67,6 @@ public class IdeasFormFragment extends Fragment {
                             }
                         }
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
@@ -75,6 +75,8 @@ public class IdeasFormFragment extends Fragment {
                 textForWhen.setAdapter(autoComplete);
             }
         });
+
+        // add Idea to firebase
 
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +87,7 @@ public class IdeasFormFragment extends Fragment {
                 newIdea.setDescription(textDescription.getText().toString());
                 newIdea.setUrl(textUrl.getText().toString());
                 newIdea.setPhoto(textPhoto.getText().toString());
-                newIdea.setPrice(textPrice.getText().toString());
+                newIdea.setPrice(Integer.parseInt(textPrice.getText().toString()));
                 newIdea.setForWhen(textForWhen.getText().toString());
                 newIdea.addToFirebase(user.getUid(), mDatabase);
             }

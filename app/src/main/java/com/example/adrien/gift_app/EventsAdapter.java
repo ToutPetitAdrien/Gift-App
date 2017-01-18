@@ -28,6 +28,8 @@ public class EventsAdapter extends ArrayAdapter<Event> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        // Init global variables
+
         final Event event = getItem(position);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         if(convertView == null){
@@ -38,6 +40,8 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         TextView tvTitle = (TextView)convertView.findViewById(R.id.textView_titleEvent);
         TextView tvPlace = (TextView)convertView.findViewById(R.id.textView_placeEvent);
         ImageView imageView = (ImageView)convertView.findViewById(R.id.imageView_cancelButton);
+
+        // To fill field with datas
 
         tvTitle.setText(event.getTitle());
         tvDay.setText(event.getDay()+"");
@@ -81,6 +85,7 @@ public class EventsAdapter extends ArrayAdapter<Event> {
                 break;
         }
 
+        // Manage delete events button
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,23 +95,19 @@ public class EventsAdapter extends ArrayAdapter<Event> {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
-                                //Yes button clicked
                                 event.removeFromFirebase(mDatabase);
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
-                                //No button clicked
                                 break;
                         }
                     }
                 };
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("Etes-vous sûr ?").setPositiveButton("Yes", dialogClickListener)
+                builder.setMessage("Etes-vous sûr de vouloir supprimer l'évènement ?").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
-
             }
         });
-
         return convertView;
     }
 }

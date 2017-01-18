@@ -1,20 +1,15 @@
 package com.example.adrien.gift_app;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import java.util.ArrayList;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,8 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
+import com.google.firebase.database.Query;
 
 public class IdeasListFragment extends Fragment {
 
@@ -43,20 +37,19 @@ public class IdeasListFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-//        ListView lv = (ListView)view.findViewById(R.id.id_listview_ideas);
         SearchView sv = (SearchView)view.findViewById(R.id.id_searchview_ideas);
-//        adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, teams);
-//        lv.setAdapter(adapter);
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
+
+        // Display Ideas list and sorted by title
+
         ArrayList<Idea> arrayOfIdeas = new ArrayList<Idea>();
         adapter = new IdeasAdapter(this.getContext(), arrayOfIdeas);
         final ListView listView = (ListView)view.findViewById(R.id.id_listview_ideas);
         listView.setAdapter(adapter);
+        Query ideasSortedByDate = mDatabase.child("ideas").orderByChild("title");
 
-
-        mDatabase.child("ideas").addChildEventListener(new ChildEventListener() {
+        ideasSortedByDate.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Idea newIdea = dataSnapshot.getValue(Idea.class);
@@ -88,6 +81,8 @@ public class IdeasListFragment extends Fragment {
             }
         });
 
+        // Get suggestions when user start writing in Searchview
+
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -96,7 +91,6 @@ public class IdeasListFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                Log.d("IdeasListFragment", "Coucou de setOnQueryTextListener");
                 adapter.getFilter().filter(newText);
                 return false;
             }

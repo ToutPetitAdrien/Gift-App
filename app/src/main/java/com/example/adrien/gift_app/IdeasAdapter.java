@@ -3,7 +3,6 @@ package com.example.adrien.gift_app;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +11,10 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.ArrayList;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
 
@@ -36,6 +34,8 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        // Init global variables
+
         idea = getItem(position);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         if(convertView == null){
@@ -54,7 +54,7 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
         tvDate.setText(idea.getForWhen());
         tvUrl.setText(idea.getUrl());
         tvRecipient.setText(idea.getRecipient());
-        tvPrice.setText(idea.getPrice());
+        tvPrice.setText(""+idea.getPrice());
         tvDescription.setText(idea.getDescription());
 
         return convertView;
@@ -70,6 +70,8 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
     public int getCount() {
         return ideasArray.size();
     }
+
+    // method for displaying suggestions when user start writing
 
     @Override
     public Filter getFilter() {
