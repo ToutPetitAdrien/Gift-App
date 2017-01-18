@@ -35,7 +35,6 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Log.d("IdeasAdapter", "Coucou de getView");
 
         idea = getItem(position);
         mDatabase = FirebaseDatabase.getInstance().getReference();

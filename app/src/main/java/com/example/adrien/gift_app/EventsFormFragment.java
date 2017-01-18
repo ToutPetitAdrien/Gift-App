@@ -76,6 +76,7 @@ public class EventsFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Calendar myCurrentCalendar = Calendar.getInstance();
+                int currentIntegerDate = myCurrentCalendar.get(Calendar.DAY_OF_MONTH) + 100*myCurrentCalendar.get(Calendar.MONTH) + 10000*myCurrentCalendar.get(Calendar.YEAR);
                 Event newEvent = new Event();
                 newEvent.setTitle(textTitle.getText().toString());
                 newEvent.setDay(myCalendar.get(Calendar.DAY_OF_MONTH));
@@ -84,8 +85,7 @@ public class EventsFormFragment extends Fragment {
                 newEvent.setPlace(textPlace.getText().toString());
                 if(textTitle.getText().toString().matches("") || textPlace.getText().toString().matches("") || textDate.getText().toString().matches("")){
                     Toast.makeText(getActivity(),"Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
-
-                } else if (newEvent.getDay() < myCurrentCalendar.get(Calendar.DAY_OF_MONTH) && newEvent.getMonth() >= myCurrentCalendar.get(Calendar.MONTH) && newEvent.getYear() >= myCurrentCalendar.get(Calendar.YEAR)){
+                } else if (newEvent.getIntegerdate() > currentIntegerDate){
                     Toast.makeText(getActivity(),"Vous ne pouvez pas ajouter un évènement dans le passé.", Toast.LENGTH_SHORT).show();
                 } else {
                     newEvent.addToFirebase(user.getUid(), mDatabase);

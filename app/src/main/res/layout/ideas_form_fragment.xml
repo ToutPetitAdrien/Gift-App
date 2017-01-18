@@ -57,7 +57,7 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_title"
-                    android:textColor="@color/cardview_shadow_start_color"
+                    android:textColor="#00B1FF"
                     android:hint="Titre"
                     android:textColorHint="@android:color/darker_gray" />
 
@@ -67,7 +67,7 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_recipient"
-                    android:textColor="@color/cardview_shadow_start_color"
+                    android:textColor="#00B1FF"
                     android:hint="Pour qui ?"
                     android:textColorHint="@android:color/darker_gray" />
 
@@ -76,7 +76,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/autoCompleteText_forwhen"
                     android:hint="Pour quand ?"
-                    android:textColorHint="@android:color/darker_gray" />
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="#00B1FF" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -84,7 +85,7 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_photo"
-                    android:textColor="@color/cardview_shadow_start_color"
+                    android:textColor="#00B1FF"
                     android:hint="Photo"
                     android:textColorHint="@android:color/darker_gray" />
 
@@ -94,7 +95,7 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_url"
-                    android:textColor="@color/cardview_shadow_start_color"
+                    android:textColor="#00B1FF"
                     android:hint="Lien URL"
                     android:textColorHint="@android:color/darker_gray" />
 
@@ -106,7 +107,7 @@
                     android:id="@+id/editText_price"
                     android:hint="Prix"
                     android:textColorHint="@android:color/darker_gray"
-                    android:textColor="@color/cardview_shadow_start_color" />
+                    android:textColor="#00B1FF" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -114,7 +115,7 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_description"
-                    android:textColor="@color/cardview_shadow_start_color"
+                    android:textColor="#00B1FF"
                     android:hint="Description"
                     android:textColorHint="@android:color/darker_gray" />
 

@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -63,19 +64,18 @@ public class EventsFragment extends Fragment {
         listView.setAdapter(adapter);
 
         Calendar calendar = Calendar.getInstance();
-        final int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
-        final int currentMonth = calendar.get(Calendar.MONTH);
-        final int currentYear = calendar.get(Calendar.YEAR);
+        final int currentIntegerDate = calendar.get(Calendar.DAY_OF_MONTH) + 100*calendar.get(Calendar.MONTH) + 10000*calendar.get(Calendar.YEAR);
 
+        Query eventsSortedByDate = mDatabase.child("events").orderByChild("integerdate");
 
-        mDatabase.child("events").addChildEventListener(new ChildEventListener() {
+        eventsSortedByDate.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Log.d("EventsFragment", "onChildAdded:"+ dataSnapshot.getKey());
                 Event newEvent = dataSnapshot.getValue(Event.class);
                 newEvent.setKey(dataSnapshot.getKey());
 
-                if(user.getUid().equals(newEvent.getCreatedBy()) && newEvent.getDay() >= currentDay && newEvent.getMonth() >= currentMonth && newEvent.getYear() >= currentYear){
+                if(user.getUid().equals(newEvent.getCreatedBy()) && newEvent.getIntegerdate() > currentIntegerDate){
                     adapter.add(newEvent);
                 }
             }

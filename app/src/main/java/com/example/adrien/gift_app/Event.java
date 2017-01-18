@@ -3,6 +3,8 @@ package com.example.adrien.gift_app;
 import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
+
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +17,7 @@ public class Event {
     private int month;
     private int year;
     private String key;
+    private int integerdate;
 
     public Event(){
 
@@ -48,6 +51,14 @@ public class Event {
         return this.key;
     }
 
+    public int getIntegerdate() {
+        return integerdate;
+    }
+
+    public void setIntegerdate(int integerdate) {
+        this.integerdate = integerdate;
+    }
+
     public void setYear(int pYear){
         this.year = pYear;
     }
@@ -74,6 +85,7 @@ public class Event {
 
     public void addToFirebase(String userId, DatabaseReference mDatabase){
         String key = mDatabase.child("events").push().getKey();
+        this.integerdate = this.day + 100*this.month + 10000*this.year;
 
         HashMap<String, Object> eventValues = new HashMap<>();
         eventValues.put("createdBy", userId);
@@ -82,6 +94,7 @@ public class Event {
         eventValues.put("month", this.month);
         eventValues.put("year", this.year);
         eventValues.put("place", this.place);
+        eventValues.put("integerdate", this.integerdate);
 
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/events/" + key, eventValues);
