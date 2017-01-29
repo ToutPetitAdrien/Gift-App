@@ -41,6 +41,8 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         TextView tvPlace = (TextView)convertView.findViewById(R.id.textView_placeEvent);
         ImageView imageView = (ImageView)convertView.findViewById(R.id.imageView_cancelButton);
 
+
+
         // To fill field with datas
 
         tvTitle.setText(event.getTitle());

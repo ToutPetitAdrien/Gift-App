@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        // Manage main fragments in navbar which is a tablayout
+        // Manage main fragment in navbar which is a tablayout
 
         navbar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

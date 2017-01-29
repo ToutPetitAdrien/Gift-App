@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_search"
+        android:icon="@mipmap/ic_event" />
+    <item android:id="@+id/action_settings"
+        android:icon="@mipmap/ic_add_ideas" />
+    <item android:id="@+id/action_navigation"
+        android:icon="@mipmap/ic_ideas" />
+</menu>

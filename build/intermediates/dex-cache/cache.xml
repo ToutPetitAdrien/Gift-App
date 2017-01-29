@@ -34,17 +34,8 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="1589e7e5a07a655df4cba1b4c1714b011ef96ab8">
+        sha1="f2743e6ac83a1febd91f023a2660a4e034330540">
         <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_831136d4e849e020fd9d94874c1555b2cd5cd47f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.18.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="43a08f2cc1bc8e9678b5a1740f3b91b50ab50ac6">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.18.0_6b7e37e87f0ac66c727bb19c11021a644ef482ae\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -129,6 +120,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.19.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c6047a34af07d6ec4e950ba1dc70ce23ac65ecaa">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.19.0_68faabeda9debb772afb4263084f5fd114945e35\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -142,7 +142,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="5ad9d3459be91b04456c6547831fb94ac3c9895f">
+        sha1="8c0109d921db6248b615057f60481cff65f4e0dc">
         <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_973041c85bf0c3d466640745618cb187c00cea04\classes.dex" />
     </item>
     <item
