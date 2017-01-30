@@ -1,12 +1,12 @@
 package com.example.adrien.gift_app;
 
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,63 +23,69 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TabLayout navbar = (TabLayout)findViewById(R.id.id_tab);
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        final LinearLayout eventButton = (LinearLayout)findViewById(R.id.navbar_event);
+        final LinearLayout addIdeasButton = (LinearLayout)findViewById(R.id.navbar_addideas);
+        final LinearLayout ideasButton = (LinearLayout)findViewById(R.id.navbar_idea);
+        final View eventButtonUnderline = findViewById(R.id.navbar_event_underline);
+        final View addIdeasButtonUnderline = findViewById(R.id.navbar_addideas_underline);
+        final View ideasButtonUnderline = findViewById(R.id.navbar_idea_underline);
 
-        // Manage main fragment in navbar which is a tablayout
+        createFragment("addidea", R.id.id_frame);
+        eventButtonUnderline.setVisibility(View.INVISIBLE);
+        addIdeasButtonUnderline.setVisibility(View.VISIBLE);
+        ideasButtonUnderline.setVisibility(View.INVISIBLE);
 
-        navbar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                FragmentManager fm = getSupportFragmentManager();
-                final FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                switch(navbar.getSelectedTabPosition()) {
-                    case 0:
-                        Fragment listEventsFragment = new EventsFragment();
-                        fragmentTransaction.replace(R.id.id_frame, listEventsFragment);
-                        break;
-                    case 1:
-                        Fragment addIdeasFragment = new IdeasFormFragment();
-                        fragmentTransaction.replace(R.id.id_frame, addIdeasFragment);
-                        break;
-                    case 2:
-                        Fragment addIdeasListFragment = new IdeasListFragment();
-                        fragmentTransaction.replace(R.id.id_frame, addIdeasListFragment);
-                        break;
-                    default:
-                        Log.d("MainActivity", "Hello : c'est un test");
-                }
-                fragmentTransaction.commit();
-            }
+            public void onClick(View v) {
+                createFragment("event", R.id.id_frame);
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                FragmentManager fm = getSupportFragmentManager();
-                final FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                switch(navbar.getSelectedTabPosition()) {
-                    case 0:
-                        Fragment listEventsFragment = new EventsFragment();
-                        fragmentTransaction.replace(R.id.id_frame, listEventsFragment);
-                        break;
-                    case 1:
-                        Fragment addIdeasFragment = new IdeasFormFragment();
-                        fragmentTransaction.replace(R.id.id_frame, addIdeasFragment);
-                        break;
-                    case 2:
-                        break;
-                    default:
-                        Log.d("MainActivity", "Hello : c'est un test");
-                }
-                fragmentTransaction.commit();
+                eventButtonUnderline.setVisibility(View.VISIBLE);
+                addIdeasButtonUnderline.setVisibility(View.INVISIBLE);
+                ideasButtonUnderline.setVisibility(View.INVISIBLE);
             }
         });
 
+        addIdeasButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createFragment("addidea", R.id.id_frame);
+
+                eventButtonUnderline.setVisibility(View.INVISIBLE);
+                addIdeasButtonUnderline.setVisibility(View.VISIBLE);
+                ideasButtonUnderline.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        ideasButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createFragment("idea", R.id.id_frame);
+
+                eventButtonUnderline.setVisibility(View.INVISIBLE);
+                addIdeasButtonUnderline.setVisibility(View.INVISIBLE);
+                ideasButtonUnderline.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    public void createFragment(String fragType, int id){
+        FragmentManager fm = getSupportFragmentManager();
+        final FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        switch (fragType){
+            case "event": Fragment newEventsFragment = new EventsFragment();
+                fragmentTransaction.replace(id, newEventsFragment);
+                break;
+            case "addidea": Fragment newAddIdeasFragment = new IdeasFormFragment();
+                fragmentTransaction.replace(id, newAddIdeasFragment);
+                break;
+            case "idea": Fragment newIdeasFragment = new IdeasListFragment();
+                fragmentTransaction.replace(id, newIdeasFragment);
+                break;
+        }
+        fragmentTransaction.commit();
     }
 
 }

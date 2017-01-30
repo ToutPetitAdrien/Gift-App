@@ -3,6 +3,7 @@ package com.example.adrien.gift_app;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,8 @@ public class IdeasFormFragment extends Fragment {
         final EditText textPrice = (EditText)view.findViewById(R.id.editText_price);
         final AutoCompleteTextView textForWhen = (AutoCompleteTextView)view.findViewById(R.id.autoCompleteText_forwhen);
         Button submit_button = (Button)view.findViewById(R.id.submit_button);
+
+        Log.d("IdeasFormFragment", "Je suis dans le fragment des ajouts  d'idées");
 
         // Suggestion event on textForWhen field
 

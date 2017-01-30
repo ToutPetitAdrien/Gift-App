@@ -41,6 +41,8 @@ public class IdeasListFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
+        Log.d("IdeasFormFragment", "Je suis dans le fragment des idées");
+
         // Display Ideas list and sorted by title
 
         ArrayList<Idea> arrayOfIdeas = new ArrayList<Idea>();
