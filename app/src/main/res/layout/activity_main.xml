@@ -14,8 +14,8 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:id="@+id/id_frame"
-        android:layout_above="@+id/id_tab"
-        android:clipToPadding="false">
+        android:clipToPadding="false"
+        android:layout_above="@+id/navbar">
 
     </FrameLayout>
 

@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,38 +12,56 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:fontFamily="Open Sans"
             android:layout_height="wrap_content"
-            android:paddingBottom="15dp">
+            android:id="@+id/header"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_height="75dp"
+                android:layout_width="75dp"
+                app:srcCompat="@mipmap/ic_logo"
+                android:layout_marginRight="20dp" />
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true">
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_vertical">
 
                 <TextView
-                    android:text="MES EVENTS"
+                    android:text="EVENEMENTS"
                     android:layout_width="wrap_content"
+                    android:id="@+id/textView"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="25sp"
+                    android:textStyle="italic"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView2"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:textSize="30sp"
-                    android:paddingTop="15dp"
-                    android:textColor="#00B1FF"
-                    android:paddingBottom="10dp"
-                    android:textStyle="bold" />
+                    android:fontFamily="sans-serif-light"
+                    android:paddingBottom="10dp" />
 
                 <View
-                    android:layout_height="3dp"
-                    android:background="@drawable/underline"
-                    android:layout_gravity="right"
-                    android:layout_width="130dp" />
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:id="@+id/header_title_underline"
+                    android:layout_below="@+id/textView"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp" />
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
