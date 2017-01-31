@@ -25,7 +25,6 @@
             android:padding="10dp">
 
             <TextView
-                android:text="Anniversaire Adrien"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/card_title"
@@ -59,7 +58,6 @@
                     android:layout_marginRight="10dp" />
 
                 <TextView
-                    android:text="19 janvier 2017"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/card_date_field"
@@ -83,7 +81,6 @@
                     android:layout_marginRight="10dp" />
 
                 <TextView
-                    android:text="ESIEE Paris"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/card_loc_field"
