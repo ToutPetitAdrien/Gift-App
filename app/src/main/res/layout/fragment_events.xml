@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.adrien.gift_app.EventsFragment">
+    tools:context="com.example.adrien.gift_app.EventsFragment"
+    android:layout_alignParentBottom="false">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -22,7 +23,7 @@
             android:paddingBottom="10dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/header_logo"
                 android:layout_height="75dp"
                 android:layout_width="75dp"
                 app:srcCompat="@mipmap/ic_logo"
@@ -35,15 +36,16 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_gravity="center_vertical">
+                android:layout_gravity="center_vertical"
+                android:id="@+id/header_title">
 
                 <TextView
                     android:text="EVENEMENTS"
                     android:layout_width="wrap_content"
-                    android:id="@+id/textView"
+                    android:id="@+id/header_title_text"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/imageView"
-                    android:layout_toEndOf="@+id/imageView"
+                    android:layout_toRightOf="@+id/header_logo"
+                    android:layout_toEndOf="@+id/header_logo"
                     android:textSize="25sp"
                     android:textStyle="italic"
                     android:layout_height="wrap_content"
@@ -54,9 +56,9 @@
                     android:layout_weight="1"
                     android:background="@android:color/white"
                     android:id="@+id/header_title_underline"
-                    android:layout_below="@+id/textView"
-                    android:layout_toRightOf="@+id/imageView"
-                    android:layout_toEndOf="@+id/imageView"
+                    android:layout_below="@+id/header_title_text"
+                    android:layout_toRightOf="@+id/header_logo"
+                    android:layout_toEndOf="@+id/header_logo"
                     android:layout_width="wrap_content"
                     android:layout_height="1dp" />
             </LinearLayout>
@@ -79,19 +81,63 @@
 
                 </FrameLayout>
 
-                <Button
-                    android:text="Creer un évènement"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button_create_event" />
-
             </LinearLayout>
         </ScrollView>
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/id_ListView_Events" />
+            android:layout_height="wrap_content"
+            android:id="@+id/id_ListView_Events"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:id="@+id/newbutton">
+
+            <TextView
+                android:text="Nouveau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_create_event"
+                android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-black"
+                android:textSize="30sp"
+                android:textColor="#FAFAFA" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:id="@+id/newbutton_overline">
+
+                <View
+                    android:id="@+id/newbutton_overline_space"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="6dp" />
+
+                <View
+                    android:id="@+id/newbutton_overline_gradient"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/overline_gradient"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="6dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </FrameLayout>

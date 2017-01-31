@@ -7,16 +7,16 @@
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
     android:paddingBottom="15dp"
-    android:paddingTop="15dp"
-    android:background="@drawable/com_facebook_auth_dialog_header_background">
+    android:paddingTop="15dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:elevation="15dp"
         android:clipToPadding="false"
         android:background="@drawable/card_shape"
-        android:padding="15dp">
+        android:padding="15dp"
+        android:id="@+id/card">
 
         <LinearLayout
             android:orientation="vertical"
@@ -36,17 +36,67 @@
             <View
                 android:layout_weight="1"
                 android:id="@+id/card_title_underline"
-                android:layout_below="@+id/textView"
-                android:layout_toRightOf="@+id/imageView"
-                android:layout_toEndOf="@+id/imageView"
+                android:layout_below="@+id/header_title_text"
+                android:layout_toRightOf="@+id/header_logo"
+                android:layout_toEndOf="@+id/header_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
-                android:background="@drawable/underline_gradient" />
+                android:background="@drawable/underline_gradient"
+                android:layout_marginBottom="15dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:id="@+id/card_date">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:srcCompat="@mipmap/ic_calendar"
+                    android:id="@+id/card_date_logo"
+                    android:layout_marginRight="10dp" />
+
+                <TextView
+                    android:text="19 janvier 2017"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/card_date_field"
+                    android:textColor="#5D6266"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/card_loc">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:srcCompat="@mipmap/ic_loc"
+                    android:id="@+id/card_loc_logo"
+                    android:layout_marginRight="10dp" />
+
+                <TextView
+                    android:text="ESIEE Paris"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/card_loc_field"
+                    android:textColor="#5D6266"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
         </LinearLayout>
 
         <ImageView
             app:srcCompat="@mipmap/ic_cross"
-            android:id="@+id/imageView7"
+            android:id="@+id/card_cross"
             android:layout_height="15dp"
             android:layout_width="15dp"
             android:layout_alignParentRight="true" />

@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -44,8 +47,9 @@ public class EventsFragment extends Fragment {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        final Button create_event = (Button)view.findViewById(R.id.button_create_event);
+        final TextView create_event = (TextView) view.findViewById(R.id.button_create_event);
         final ListView listView = (ListView) view.findViewById(R.id.id_ListView_Events);
+        final RelativeLayout newbutton = (RelativeLayout) view.findViewById(R.id.newbutton);
 
         // Manage event creation
 
@@ -57,7 +61,7 @@ public class EventsFragment extends Fragment {
                 Fragment addEventFragment = new EventsFormFragment();
                 fragmentTransaction.replace(R.id.id_fragment_addEvents, addEventFragment);
                 fragmentTransaction.commit();
-                create_event.setVisibility(View.GONE);
+                newbutton.setVisibility(View.GONE);
             }
         });
 
