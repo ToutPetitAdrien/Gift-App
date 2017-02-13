@@ -67,9 +67,10 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -77,9 +78,10 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_title"
-                    android:textColor="#00B1FF"
+                    android:textColor="#fff"
                     android:hint="Titre"
-                    android:textColorHint="@android:color/darker_gray" />
+                    android:textColorHint="#fafafa"
+                    android:textColorHighlight="@android:color/holo_orange_light" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -87,17 +89,19 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_recipient"
-                    android:textColor="#00B1FF"
+                    android:textColor="#fff"
                     android:hint="Pour qui ?"
-                    android:textColorHint="@android:color/darker_gray" />
+                    android:textColorHint="#fafafa"
+                    android:textColorHighlight="@android:color/holo_orange_light" />
 
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/autoCompleteText_forwhen"
                     android:hint="Pour quand ?"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:textColor="#00B1FF" />
+                    android:textColorHint="#fafafa"
+                    android:textColor="#fff"
+                    android:textColorHighlight="@android:color/holo_orange_light" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -105,9 +109,10 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_photo"
-                    android:textColor="#00B1FF"
+                    android:textColor="#fff"
                     android:hint="Photo"
-                    android:textColorHint="@android:color/darker_gray" />
+                    android:textColorHint="#fafafa"
+                    android:textColorHighlight="@android:color/holo_orange_light" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -115,9 +120,10 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_url"
-                    android:textColor="#00B1FF"
+                    android:textColor="#fff"
                     android:hint="Lien URL"
-                    android:textColorHint="@android:color/darker_gray" />
+                    android:textColorHint="#fafafa"
+                    android:textColorHighlight="@android:color/holo_orange_light" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -126,8 +132,9 @@
                     android:ems="10"
                     android:id="@+id/editText_price"
                     android:hint="Prix"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:textColor="#00B1FF" />
+                    android:textColorHint="#fafafa"
+                    android:textColor="#fff"
+                    android:textColorHighlight="@android:color/holo_orange_light" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -135,9 +142,10 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editText_description"
-                    android:textColor="#00B1FF"
+                    android:textColor="#fff"
                     android:hint="Description"
-                    android:textColorHint="@android:color/darker_gray" />
+                    android:textColorHint="#fafafa"
+                    android:textColorHighlight="@android:color/holo_orange_light" />
 
                 <Button
                     android:text="AJOUTER"

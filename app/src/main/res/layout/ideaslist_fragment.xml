@@ -69,14 +69,17 @@
             android:background="@color/cardview_dark_background">
 
             <SearchView
-                android:layout_width="match_parent"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/id_searchview_ideas" />
+                android:id="@+id/id_searchview_ideas"
+                android:layout_gravity="center_horizontal" />
 
             <ListView
-                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/id_listview_ideas" />
+                android:id="@+id/id_listview_ideas"
+                android:headerDividersEnabled="false"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="360dp" />
         </LinearLayout>
 
     </LinearLayout>
