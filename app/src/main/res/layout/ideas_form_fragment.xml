@@ -64,20 +64,22 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <LinearLayout
-                android:layout_width="360dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/form">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText_title"
+                    android:id="@+id/form_title"
                     android:textColor="#fff"
                     android:hint="Titre"
                     android:textColorHint="#fafafa"
@@ -88,16 +90,16 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText_recipient"
                     android:textColor="#fff"
                     android:hint="Pour qui ?"
                     android:textColorHint="#fafafa"
-                    android:textColorHighlight="@android:color/holo_orange_light" />
+                    android:textColorHighlight="@android:color/holo_orange_light"
+                    android:id="@+id/form_who" />
 
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/autoCompleteText_forwhen"
+                    android:id="@+id/form_when"
                     android:hint="Pour quand ?"
                     android:textColorHint="#fafafa"
                     android:textColor="#fff"
@@ -108,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText_photo"
+                    android:id="@+id/form_photo"
                     android:textColor="#fff"
                     android:hint="Photo"
                     android:textColorHint="#fafafa"
@@ -119,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText_url"
+                    android:id="@+id/form_url"
                     android:textColor="#fff"
                     android:hint="Lien URL"
                     android:textColorHint="#fafafa"
@@ -130,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText_price"
+                    android:id="@+id/form_price"
                     android:hint="Prix"
                     android:textColorHint="#fafafa"
                     android:textColor="#fff"
@@ -141,19 +143,63 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText_description"
+                    android:id="@+id/form_description"
                     android:textColor="#fff"
                     android:hint="Description"
                     android:textColorHint="#fafafa"
                     android:textColorHighlight="@android:color/holo_orange_light" />
 
-                <Button
-                    android:text="AJOUTER"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/submit_button" />
             </LinearLayout>
         </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addbutton2"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:text="Ajouter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/addbutton2_text"
+                android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-black"
+                android:textSize="30sp"
+                android:textColor="#FAFAFA" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:id="@+id/addbutton2_overline">
+
+                <View
+                    android:id="@+id/addbutton2_overline_space"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="6dp" />
+
+                <View
+                    android:id="@+id/addbutton2_overline_gradient"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/overline_gradient"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="6dp"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+        </RelativeLayout>
     </LinearLayout>
 
 </FrameLayout>

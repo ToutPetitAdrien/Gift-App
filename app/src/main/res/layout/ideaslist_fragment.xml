@@ -65,21 +65,20 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/linearLayout"
-            android:background="@color/cardview_dark_background">
+            android:layout_below="@+id/linearLayout">
 
             <SearchView
-                android:layout_width="360dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/id_searchview_ideas"
-                android:layout_gravity="center_horizontal" />
+                style="@android:style/Widget.Material.SearchView" />
 
             <ListView
                 android:layout_height="match_parent"
                 android:id="@+id/id_listview_ideas"
                 android:headerDividersEnabled="false"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="360dp" />
+                android:layout_width="match_parent" />
         </LinearLayout>
 
     </LinearLayout>

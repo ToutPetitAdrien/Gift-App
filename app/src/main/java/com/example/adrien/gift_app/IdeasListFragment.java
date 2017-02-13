@@ -98,5 +98,7 @@ public class IdeasListFragment extends Fragment {
             }
         });
     }
+
+
 }
 

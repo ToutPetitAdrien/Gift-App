@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,14 +40,14 @@ public class IdeasFormFragment extends Fragment {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        final EditText textTitle = (EditText)view.findViewById(R.id.editText_title);
-        final EditText textRecipient = (EditText)view.findViewById(R.id.editText_recipient);
-        final EditText textDescription = (EditText)view.findViewById(R.id.editText_description);
-        final EditText textUrl = (EditText)view.findViewById(R.id.editText_url);
-        final EditText textPhoto = (EditText)view.findViewById(R.id.editText_photo);
-        final EditText textPrice = (EditText)view.findViewById(R.id.editText_price);
-        final AutoCompleteTextView textForWhen = (AutoCompleteTextView)view.findViewById(R.id.autoCompleteText_forwhen);
-        Button submit_button = (Button)view.findViewById(R.id.submit_button);
+        final EditText textTitle = (EditText)view.findViewById(R.id.form_title);
+        final EditText textRecipient = (EditText)view.findViewById(R.id.form_who);
+        final EditText textDescription = (EditText)view.findViewById(R.id.form_description);
+        final EditText textUrl = (EditText)view.findViewById(R.id.form_url);
+        final EditText textPhoto = (EditText)view.findViewById(R.id.form_photo);
+        final EditText textPrice = (EditText)view.findViewById(R.id.form_price);
+        final AutoCompleteTextView textForWhen = (AutoCompleteTextView)view.findViewById(R.id.form_when);
+        final TextView submit_button = (TextView) view.findViewById(R.id.addbutton2_text);
 
         Log.d("IdeasFormFragment", "Je suis dans le fragment des ajouts  d'idées");
 

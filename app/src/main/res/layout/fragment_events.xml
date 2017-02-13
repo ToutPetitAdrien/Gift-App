@@ -87,7 +87,7 @@
         </ScrollView>
 
         <ListView
-            android:layout_width="360dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/id_ListView_Events"
             android:layout_weight="1"
