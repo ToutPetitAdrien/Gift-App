@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -43,8 +44,8 @@ public class EventsFormFragment extends Fragment {
         final EditText textDate = (EditText)view.findViewById(R.id.editText_date_event);
         final EditText textPlace = (EditText)view.findViewById(R.id.editText_place_event);
         final Calendar myCalendar = Calendar.getInstance();
-        Button addEvent = (Button)view.findViewById(R.id.id_addButton);
-        Button cancelEvent = (Button)view.findViewById(R.id.id_cancelButton);
+        final TextView add_event = (TextView) view.findViewById(R.id.addbutton_text);
+        final TextView cancel_event = (TextView) view.findViewById(R.id.cancelbutton_text);
 
         // Manage Dialog Calendar
 
@@ -71,7 +72,7 @@ public class EventsFormFragment extends Fragment {
 
         // Add Events button
 
-        addEvent.setOnClickListener(new View.OnClickListener() {
+        add_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar myCurrentCalendar = Calendar.getInstance();
@@ -95,7 +96,7 @@ public class EventsFormFragment extends Fragment {
 
         // Remove Events button
 
-        cancelEvent.setOnClickListener(new View.OnClickListener() {
+        cancel_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.id_fragment_addEvents)).commit();
