@@ -2,11 +2,17 @@ package com.example.adrien.gift_app;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,20 +34,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
-import static android.app.Activity.RESULT_OK;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 
 public class IdeasFormFragment extends Fragment {
 
     private DatabaseReference mDatabase;
     private FirebaseUser user;
-    private FirebaseStorage storage;
-    private static final int GALLERY_INTENT = 2;
-    private ProgressDialog progressDialog;
+    private static final int REQUEST_IMAGE_CAPTURE = 111;
+    private ImageView imagePhoto;
+    private String imageForFirebase = "pas d'image";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,28 +58,29 @@ public class IdeasFormFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        StorageReference storageRef = storage.getReferenceFromUrl("gs://gift-app-fd6d4.appspot.com");
+        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == getActivity().RESULT_OK){
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
 
-        if(requestCode == GALLERY_INTENT && resultCode == RESULT_OK){
+            Matrix matrix = new Matrix();
+            matrix.postRotate(90);
+            Bitmap imageBitmapFinal = Bitmap.createBitmap(imageBitmap, 0, 0, imageBitmap.getWidth(), imageBitmap.getHeight(), matrix, true);
+            imageForFirebase = encodeBitmapAndSaveToFirebase(imageBitmapFinal);
+            Bitmap bmpForPreview;
 
-            progressDialog.setMessage("Uploading ...");
-            progressDialog.show();
-            Uri uri = data.getData();
-            StorageReference filepath = storageRef.child("Photos").child(uri.getLastPathSegment());
-            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(getActivity(), "Upload Done.", Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
-                }
-            });
+            if(imageBitmapFinal.getWidth() >= imageBitmapFinal.getHeight()){
+                bmpForPreview = Bitmap.createBitmap(imageBitmapFinal, imageBitmapFinal.getWidth()/2 - imageBitmapFinal.getHeight()/2, 0, imageBitmapFinal.getHeight(), imageBitmapFinal.getHeight());
+            } else {
+                bmpForPreview = Bitmap.createBitmap(imageBitmapFinal, 0, imageBitmapFinal.getHeight()/2 - imageBitmapFinal.getWidth()/2, imageBitmapFinal.getWidth(), imageBitmapFinal.getWidth());
+            }
+            imagePhoto.setImageBitmap(bmpForPreview);
+
         }
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        storage = FirebaseStorage.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final EditText textTitle = (EditText)view.findViewById(R.id.form_title);
@@ -85,10 +90,7 @@ public class IdeasFormFragment extends Fragment {
         final EditText textPrice = (EditText)view.findViewById(R.id.form_price);
         final AutoCompleteTextView textForWhen = (AutoCompleteTextView)view.findViewById(R.id.form_when);
         final TextView submit_button = (TextView) view.findViewById(R.id.addbutton2_text);
-
-        progressDialog = new ProgressDialog(getContext());
-
-
+        imagePhoto = (ImageView)view.findViewById(R.id.form_photo_image);
 
         // Suggestion event on textForWhen field
 
@@ -125,7 +127,7 @@ public class IdeasFormFragment extends Fragment {
                 newIdea.setTitle(textTitle.getText().toString());
                 newIdea.setRecipient(textRecipient.getText().toString());
                 newIdea.setUrl(textUrl.getText().toString());
-                newIdea.setPhoto(textPhoto.getText().toString());
+                newIdea.setPhoto(imageForFirebase);
                 newIdea.setPrice(Integer.parseInt(textPrice.getText().toString()));
                 newIdea.setForWhen(textForWhen.getText().toString());
                 newIdea.addToFirebase(user.getUid(), mDatabase);
@@ -137,12 +139,18 @@ public class IdeasFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent, GALLERY_INTENT);
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if(takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
             }
         });
+    }
 
-
+    public String encodeBitmapAndSaveToFirebase(Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        String imageEncoded = Base64.encodeToString(baos.toByteArray(),Base64.DEFAULT);
+        return imageEncoded;
     }
 }

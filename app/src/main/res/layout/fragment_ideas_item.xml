@@ -24,6 +24,12 @@
                 android:layout_height="match_parent"
                 android:id="@+id/cardidea_photo">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cardidea_photo_image"
+                    android:background="@drawable/photo_shape" />
+
                 <TextView
                     android:text="Adrien Mulattieri"
                     android:layout_width="wrap_content"
@@ -37,7 +43,7 @@
                     android:layout_alignParentBottom="true" />
 
                 <ImageView
-                    android:id="@+id/cardidea_photo_image"
+                    android:id="@+id/cardidea_photo_icon"
                     android:layout_height="50dp"
                     android:layout_width="50dp"
                     app:srcCompat="@mipmap/ic_photo"

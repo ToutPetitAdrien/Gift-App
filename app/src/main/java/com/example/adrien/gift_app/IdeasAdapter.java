@@ -1,8 +1,12 @@
 package com.example.adrien.gift_app;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +15,8 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 import com.google.firebase.database.DatabaseReference;
@@ -48,7 +54,19 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
         TextView tvDate = (TextView)convertView.findViewById(R.id.cardidea_info_date_text);
         TextView tvUrl = (TextView)convertView.findViewById(R.id.cardidea_info_url_text);
         TextView tvPrice = (TextView)convertView.findViewById(R.id.cardidea_info_price_text);
-        TextView tvDescription = (TextView)convertView.findViewById(R.id.id_ideadescription);
+        ImageView imageViewIcon = (ImageView)convertView.findViewById(R.id.cardidea_photo_icon);
+
+        if(idea.getPhoto() != "pas d'image"){
+            imageViewIcon.setVisibility(View.INVISIBLE);
+            try {
+                Bitmap imageBitmap = decodeFromFirebasebase64(idea.getPhoto());
+                imageView.setImageBitmap(imageBitmap);
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
+
 
         tvTitle.setText(idea.getTitle());
         tvDate.setText(idea.getForWhen());
@@ -108,5 +126,10 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
             }
         };
 
+    }
+
+    public static Bitmap decodeFromFirebasebase64(String image) throws IOException {
+        byte[] decodeByteArray = android.util.Base64.decode(image, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodeByteArray, 0, decodeByteArray.length);
     }
 }
