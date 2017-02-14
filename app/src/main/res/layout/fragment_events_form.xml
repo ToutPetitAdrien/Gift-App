@@ -46,7 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addbutton"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
 
             <TextView
                 android:text="Ajouter"
@@ -73,11 +75,10 @@
                     android:layout_marginRight="110dp"
                     android:layout_marginLeft="110dp"
                     android:layout_centerVertical="true"
-                    android:layout_height="6dp" />
+                    android:layout_height="38dp" />
 
                 <View
                     android:id="@+id/addbutton_overline_gradient"
-                    android:layout_width="wrap_content"
                     android:background="@drawable/overline_gradient"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="false"
@@ -85,7 +86,8 @@
                     android:layout_marginLeft="110dp"
                     android:layout_centerVertical="true"
                     android:layout_height="6dp"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="60dp" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -94,7 +96,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cancelbutton"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
 
             <TextView
                 android:text="Retour"
@@ -121,11 +125,11 @@
                     android:layout_marginRight="110dp"
                     android:layout_marginLeft="110dp"
                     android:layout_centerVertical="true"
-                    android:layout_height="6dp" />
+                    android:layout_height="38dp" />
 
                 <View
                     android:id="@+id/cancelbutton_overline_gradient"
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:background="@drawable/overline_gradient"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="false"

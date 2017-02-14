@@ -15,7 +15,9 @@
         android:layout_weight="1"
         android:id="@+id/id_frame"
         android:clipToPadding="false"
-        android:layout_above="@+id/navbar">
+        android:layout_above="@+id/navbar"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
     </FrameLayout>
 

@@ -125,7 +125,7 @@
                     android:layout_marginRight="110dp"
                     android:layout_marginLeft="110dp"
                     android:layout_centerVertical="true"
-                    android:layout_height="6dp" />
+                    android:layout_height="38dp" />
 
                 <View
                     android:id="@+id/newbutton_overline_gradient"
@@ -137,7 +137,7 @@
                     android:layout_centerVertical="true"
                     android:layout_height="6dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="155dp" />
+                    android:layout_width="60dp" />
             </LinearLayout>
 
         </RelativeLayout>
