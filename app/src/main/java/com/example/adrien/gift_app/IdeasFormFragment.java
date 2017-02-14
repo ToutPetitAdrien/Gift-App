@@ -42,7 +42,6 @@ public class IdeasFormFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final EditText textTitle = (EditText)view.findViewById(R.id.form_title);
         final EditText textRecipient = (EditText)view.findViewById(R.id.form_who);
-        final EditText textDescription = (EditText)view.findViewById(R.id.form_description);
         final EditText textUrl = (EditText)view.findViewById(R.id.form_url);
         final EditText textPhoto = (EditText)view.findViewById(R.id.form_photo);
         final EditText textPrice = (EditText)view.findViewById(R.id.form_price);
@@ -85,7 +84,6 @@ public class IdeasFormFragment extends Fragment {
                 Idea newIdea = new Idea();
                 newIdea.setTitle(textTitle.getText().toString());
                 newIdea.setRecipient(textRecipient.getText().toString());
-                newIdea.setDescription(textDescription.getText().toString());
                 newIdea.setUrl(textUrl.getText().toString());
                 newIdea.setPhoto(textPhoto.getText().toString());
                 newIdea.setPrice(Integer.parseInt(textPrice.getText().toString()));

@@ -39,15 +39,15 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
         idea = getItem(position);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_idea, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_ideas_item, parent, false);
         }
 
-        ImageView imageView = (ImageView)convertView.findViewById(R.id.id_imageView);
-        TextView tvTitle = (TextView)convertView.findViewById(R.id.id_ideatitle);
-        TextView tvRecipient = (TextView)convertView.findViewById(R.id.id_idearecipient);
-        TextView tvDate = (TextView)convertView.findViewById(R.id.id_ideadate);
-        TextView tvUrl = (TextView)convertView.findViewById(R.id.id_ideaurl);
-        TextView tvPrice = (TextView)convertView.findViewById(R.id.id_ideaprice);
+        ImageView imageView = (ImageView)convertView.findViewById(R.id.cardidea_photo_image);
+        TextView tvTitle = (TextView)convertView.findViewById(R.id.cardidea_info_title);
+        TextView tvRecipient = (TextView)convertView.findViewById(R.id.cardidea_photo_text);
+        TextView tvDate = (TextView)convertView.findViewById(R.id.cardidea_info_date_text);
+        TextView tvUrl = (TextView)convertView.findViewById(R.id.cardidea_info_url_text);
+        TextView tvPrice = (TextView)convertView.findViewById(R.id.cardidea_info_price_text);
         TextView tvDescription = (TextView)convertView.findViewById(R.id.id_ideadescription);
 
         tvTitle.setText(idea.getTitle());
@@ -55,7 +55,6 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
         tvUrl.setText(idea.getUrl());
         tvRecipient.setText(idea.getRecipient());
         tvPrice.setText(""+idea.getPrice());
-        tvDescription.setText(idea.getDescription());
 
         return convertView;
     }

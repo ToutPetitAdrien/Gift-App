@@ -15,7 +15,6 @@ public class Idea {
     private int price;
     private String url;
     private String photo;
-    private String description;
     private String recipient;
     private String createdBy;
     private String forWhen;
@@ -39,10 +38,6 @@ public class Idea {
 
     public String getPhoto(){
         return this.photo;
-    }
-
-    public String getDescription(){
-        return this.description;
     }
 
     public String getRecipient(){
@@ -85,10 +80,6 @@ public class Idea {
         this.photo = pPhoto;
     }
 
-    public void setDescription(String pDescription){
-        this.description = pDescription;
-    }
-
     public void setRecipient(String pRecipient){
         this.recipient = pRecipient;
     }
@@ -103,7 +94,6 @@ public class Idea {
         ideaValues.put("price", this.price);
         ideaValues.put("url", this.url);
         ideaValues.put("photo", this.photo);
-        ideaValues.put("description", this.description);
         ideaValues.put("forWhen", this.forWhen);
 
         Map<String, Object> childUpdates = new HashMap<>();

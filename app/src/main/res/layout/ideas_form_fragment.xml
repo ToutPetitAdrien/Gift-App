@@ -138,17 +138,6 @@
                     android:textColor="#fff"
                     android:textColorHighlight="@android:color/holo_orange_light" />
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:ems="10"
-                    android:id="@+id/form_description"
-                    android:textColor="#fff"
-                    android:hint="Description"
-                    android:textColorHint="#fafafa"
-                    android:textColorHighlight="@android:color/holo_orange_light" />
-
             </LinearLayout>
         </ScrollView>
 
