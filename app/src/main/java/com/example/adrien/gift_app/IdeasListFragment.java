@@ -24,7 +24,7 @@ public class IdeasListFragment extends Fragment {
 
     private DatabaseReference mDatabase;
     private FirebaseUser user;
-    IdeasAdapter adapter;
+    private IdeasAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -116,6 +116,12 @@
                     android:textColorHint="#fafafa"
                     android:textColorHighlight="@android:color/holo_orange_light" />
 
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/form_photo_image"
+                    app:srcCompat="@mipmap/ic_addphoto" />
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
