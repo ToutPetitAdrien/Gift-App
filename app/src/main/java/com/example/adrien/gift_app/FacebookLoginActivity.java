@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.CallbackManager;
@@ -121,7 +120,6 @@ public class FacebookLoginActivity extends AppCompatActivity {
                             Toast.makeText(FacebookLoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-
                         // ...
                     }
                 });

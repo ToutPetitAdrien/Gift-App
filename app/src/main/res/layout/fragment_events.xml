@@ -1,0 +1,133 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.adrien.gift_app.EventsFragment"
+    android:layout_alignParentBottom="false">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:fontFamily="Open Sans"
+            android:layout_height="wrap_content"
+            android:id="@+id/header"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/header_logo"
+                android:layout_height="75dp"
+                android:layout_width="75dp"
+                app:srcCompat="@mipmap/ic_logo"
+                android:layout_marginRight="20dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/header_title">
+
+                <TextView
+                    android:text="EVENEMENTS"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/header_title_text"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/header_logo"
+                    android:layout_toEndOf="@+id/header_logo"
+                    android:textSize="25sp"
+                    android:textStyle="italic"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/white" />
+
+                <View
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:id="@+id/header_title_underline"
+                    android:layout_below="@+id/header_title_text"
+                    android:layout_toRightOf="@+id/header_logo"
+                    android:layout_toEndOf="@+id/header_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:id="@+id/fragment_eventsform_frame"
+            android:layout_height="wrap_content">
+
+        </FrameLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listevents"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:id="@+id/newbutton">
+
+            <TextView
+                android:text="Nouveau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/newbutton_text"
+                android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-black"
+                android:textSize="30sp"
+                android:textColor="#FAFAFA" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:id="@+id/newbutton_overline">
+
+                <View
+                    android:id="@+id/newbutton_overline_space"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="38dp" />
+
+                <View
+                    android:id="@+id/newbutton_overline_gradient"
+                    android:background="@drawable/overline_gradient"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="6dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="60dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
