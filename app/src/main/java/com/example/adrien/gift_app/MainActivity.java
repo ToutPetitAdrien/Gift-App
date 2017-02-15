@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        // To check if the user is logged in or not
         if (AccessToken.getCurrentAccessToken() == null){
             Intent goToFacebookLoginActivity = new Intent(this, FacebookLoginActivity.class);
             startActivity(goToFacebookLoginActivity);
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         final View addIdeasButtonUnderline = findViewById(R.id.navbar_addideas_underline);
         final View ideasButtonUnderline = findViewById(R.id.navbar_idea_underline);
 
+        // switch between fragments with the bottom navbar
         createFragment("addidea", R.id.id_frame);
         eventButtonUnderline.setVisibility(View.INVISIBLE);
         addIdeasButtonUnderline.setVisibility(View.VISIBLE);
@@ -48,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 createFragment("event", R.id.id_frame);
                 eventButtonUnderline.setVisibility(View.VISIBLE);
                 addIdeasButtonUnderline.setVisibility(View.INVISIBLE);
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         addIdeasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 createFragment("addidea", R.id.id_frame);
                 eventButtonUnderline.setVisibility(View.INVISIBLE);
                 addIdeasButtonUnderline.setVisibility(View.VISIBLE);
@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         ideasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 createFragment("idea", R.id.id_frame);
                 eventButtonUnderline.setVisibility(View.INVISIBLE);
                 addIdeasButtonUnderline.setVisibility(View.INVISIBLE);
@@ -79,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // fonction for fragment creation process
     public void createFragment(String fragType, int id){
         FragmentManager fm = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = fm.beginTransaction();
@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         }
         fragmentTransaction.commit();
     }
-
 }
 
 

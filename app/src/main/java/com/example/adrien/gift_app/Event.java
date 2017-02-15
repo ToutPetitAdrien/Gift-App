@@ -18,7 +18,6 @@ public class Event {
     private int integerdate;
 
     public Event(){
-
     }
 
     public String getCreatedBy() {
