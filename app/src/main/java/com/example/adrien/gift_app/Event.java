@@ -1,12 +1,10 @@
 package com.example.adrien.gift_app;
 
-import android.util.Log;
-
 import com.google.firebase.database.DatabaseReference;
-
-import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.text.DateFormatSymbols;
 
 public class Event {
 
@@ -20,7 +18,6 @@ public class Event {
     private int integerdate;
 
     public Event(){
-
     }
 
     public String getCreatedBy() {
@@ -53,6 +50,11 @@ public class Event {
 
     public int getIntegerdate() {
         return integerdate;
+    }
+
+    public String getDate(){
+        String month = new DateFormatSymbols(Locale.FRANCE).getMonths()[this.month];
+        return this.day + " " + month + " " + this.year;
     }
 
     public void setYear(int pYear){

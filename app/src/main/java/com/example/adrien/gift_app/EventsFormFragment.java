@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -43,8 +45,9 @@ public class EventsFormFragment extends Fragment {
         final EditText textDate = (EditText)view.findViewById(R.id.editText_date_event);
         final EditText textPlace = (EditText)view.findViewById(R.id.editText_place_event);
         final Calendar myCalendar = Calendar.getInstance();
-        Button addEvent = (Button)view.findViewById(R.id.id_addButton);
-        Button cancelEvent = (Button)view.findViewById(R.id.id_cancelButton);
+        final TextView add_event = (TextView) view.findViewById(R.id.addbutton_text);
+        final TextView cancel_event = (TextView) view.findViewById(R.id.cancelbutton_text);
+        final RelativeLayout newbutton = (RelativeLayout) getActivity().findViewById(R.id.newbutton);
 
         // Manage Dialog Calendar
 
@@ -71,7 +74,7 @@ public class EventsFormFragment extends Fragment {
 
         // Add Events button
 
-        addEvent.setOnClickListener(new View.OnClickListener() {
+        add_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar myCurrentCalendar = Calendar.getInstance();
@@ -88,6 +91,8 @@ public class EventsFormFragment extends Fragment {
                     Toast.makeText(getActivity(),"Vous ne pouvez pas ajouter un évènement dans le passé.", Toast.LENGTH_SHORT).show();
                 } else {
                     newEvent.addToFirebase(user.getUid(), mDatabase);
+                    getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.fragment_eventsform_frame)).commit();
+                    newbutton.setVisibility(View.VISIBLE);
                     Toast.makeText(getActivity(),"Evènement ajouté", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -95,10 +100,11 @@ public class EventsFormFragment extends Fragment {
 
         // Remove Events button
 
-        cancelEvent.setOnClickListener(new View.OnClickListener() {
+        cancel_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.id_fragment_addEvents)).commit();
+                getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.fragment_eventsform_frame)).commit();
+                newbutton.setVisibility(View.VISIBLE);
             }
         });
     }

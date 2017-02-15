@@ -5,12 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -33,57 +33,46 @@ public class EventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_events, container, false);
-
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        // Variables Global Initalization
-
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        final Button create_event = (Button)view.findViewById(R.id.button_create_event);
-        final ListView listView = (ListView) view.findViewById(R.id.id_ListView_Events);
+        Calendar calendar = Calendar.getInstance(); //to deal with date
 
-        // Manage event creation
+        final TextView create_event = (TextView) view.findViewById(R.id.newbutton_text);
+        final ListView listView = (ListView) view.findViewById(R.id.listevents);
+        final RelativeLayout create_event_layout = (RelativeLayout) view.findViewById(R.id.newbutton);
 
+        // Button for new event
         create_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction fragmentTransaction  = fm.beginTransaction();
                 Fragment addEventFragment = new EventsFormFragment();
-                fragmentTransaction.replace(R.id.id_fragment_addEvents, addEventFragment);
+                fragmentTransaction.replace(R.id.fragment_eventsform_frame, addEventFragment);
                 fragmentTransaction.commit();
-                create_event.setVisibility(View.GONE);
+                create_event_layout.setVisibility(View.GONE); //hide button when user clicked
             }
         });
 
-        // Creation event adapter
-
         ArrayList<Event> arrayOfEvents = new ArrayList<Event>();
         adapter = new EventsAdapter(this.getContext(), arrayOfEvents);
-        listView.setAdapter(adapter);
-
-        // To sort event by date
-
-        Calendar calendar = Calendar.getInstance();
-        final int currentIntegerDate = calendar.get(Calendar.DAY_OF_MONTH) + 100*calendar.get(Calendar.MONTH) + 10000*calendar.get(Calendar.YEAR);
-        Query eventsSortedByDate = mDatabase.child("events").orderByChild("integerdate");
-
-        // Update UI when a new event is created
+        listView.setAdapter(adapter); //give the list of Event to the adapter
+        final int currentIntegerDate = calendar.get(Calendar.DAY_OF_MONTH) + 100*calendar.get(Calendar.MONTH) + 10000*calendar.get(Calendar.YEAR); // int to represent current date
+        Query eventsSortedByDate = mDatabase.child("events").orderByChild("integerdate"); //Order event with the most recent on the top
 
         eventsSortedByDate.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Log.d("EventsFragment", "onChildAdded:"+ dataSnapshot.getKey());
-                Event newEvent = dataSnapshot.getValue(Event.class);
+                Event newEvent = dataSnapshot.getValue(Event.class); //target the event just created
                 newEvent.setKey(dataSnapshot.getKey());
-
-                if(user.getUid().equals(newEvent.getCreatedBy()) && newEvent.getIntegerdate() > currentIntegerDate){
-                    adapter.add(newEvent);
+                if(user.getUid().equals(newEvent.getCreatedBy()) && newEvent.getIntegerdate() > currentIntegerDate){ //check if the event date is past and if the event belong to the current user
+                    adapter.add(newEvent); //populate the adapter
                 }
             }
             @Override
@@ -91,10 +80,9 @@ public class EventsFragment extends Fragment {
             }
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                Log.d("EventsFragment", "onChildRemoved:"+ dataSnapshot.getValue(Event.class).getTitle());
-                Event newEvent = dataSnapshot.getValue(Event.class);
-                if(user.getUid().equals(newEvent.getCreatedBy())){
-                    adapter.remove(newEvent);
+                Event newEvent = dataSnapshot.getValue(Event.class); //target the event just removed
+                if(user.getUid().equals(newEvent.getCreatedBy())){ //check if the event belong to the current user
+                    adapter.remove(newEvent); //remove from the adapter
                 }
             }
             @Override

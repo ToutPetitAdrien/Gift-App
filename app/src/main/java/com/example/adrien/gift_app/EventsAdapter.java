@@ -3,6 +3,7 @@ package com.example.adrien.gift_app;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,61 +34,22 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         final Event event = getItem(position);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_event, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_events_item, parent, false);
         }
-        TextView tvDay = (TextView)convertView.findViewById(R.id.textView_day);
-        TextView tvMonth = (TextView)convertView.findViewById(R.id.textView_month);
-        TextView tvTitle = (TextView)convertView.findViewById(R.id.textView_titleEvent);
-        TextView tvPlace = (TextView)convertView.findViewById(R.id.textView_placeEvent);
-        ImageView imageView = (ImageView)convertView.findViewById(R.id.imageView_cancelButton);
+        TextView tvTitle = (TextView)convertView.findViewById(R.id.card_title);
+        TextView tvPlace = (TextView)convertView.findViewById(R.id.card_loc_field);
+        TextView tvDate = (TextView)convertView.findViewById(R.id.card_date_field);
+        ImageView crossButton = (ImageView)convertView.findViewById(R.id.card_cross);
 
         // To fill field with datas
 
         tvTitle.setText(event.getTitle());
-        tvDay.setText(event.getDay()+"");
-        tvPlace.setText("à " +event.getPlace());
-        switch (event.getMonth()){
-            case 0:
-                tvMonth.setText("Janv.");
-                break;
-            case 1:
-                tvMonth.setText("Fevr.");
-                break;
-            case 2:
-                tvMonth.setText("Mars");
-                break;
-            case 3:
-                tvMonth.setText("Avril");
-                break;
-            case 4:
-                tvMonth.setText("Mai");
-                break;
-            case 5:
-                tvMonth.setText("Juin");
-                break;
-            case 6:
-                tvMonth.setText("Juil");
-                break;
-            case 7:
-                tvMonth.setText("Août");
-                break;
-            case 8:
-                tvMonth.setText("Sept.");
-                break;
-            case 9:
-                tvMonth.setText("Octob.");
-                break;
-            case 10:
-                tvMonth.setText("Nov.");
-                break;
-            case 11:
-                tvMonth.setText("Dec.");
-                break;
-        }
+        tvDate.setText(event.getDate());
+        tvPlace.setText(event.getPlace());
 
         // Manage delete events button
 
-        imageView.setOnClickListener(new View.OnClickListener() {
+        crossButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener(){

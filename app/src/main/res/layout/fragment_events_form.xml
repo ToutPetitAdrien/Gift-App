@@ -9,7 +9,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
         <EditText
             android:layout_width="match_parent"
@@ -18,8 +19,8 @@
             android:ems="10"
             android:id="@+id/editText_title_event"
             android:hint="Titre"
-            android:textColorHint="@android:color/darker_gray"
-            android:textColor="@android:color/black" />
+            android:textColor="#fff"
+            android:textColorHint="#fafafa" />
 
         <EditText
             android:layout_width="match_parent"
@@ -27,9 +28,9 @@
             android:ems="10"
             android:id="@+id/editText_date_event"
             android:hint="Date dd/MM/yyyy (double cliquer)"
-            android:textColorHint="@android:color/darker_gray"
             android:inputType="date"
-            android:textColor="@android:color/black" />
+            android:textColor="#fff"
+            android:textColorHint="#fafafa" />
 
         <EditText
             android:layout_width="match_parent"
@@ -38,20 +39,104 @@
             android:ems="10"
             android:id="@+id/editText_place_event"
             android:hint="Lieu"
-            android:textColorHint="@android:color/darker_gray"
-            android:textColor="@android:color/black" />
+            android:textColor="#fff"
+            android:textColorHint="#fafafa" />
 
-        <Button
-            android:text="Ajouter"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/id_addButton"
-            android:elevation="0dp" />
+            android:id="@+id/addbutton"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
 
-        <Button
-            android:text="Retour"
+            <TextView
+                android:text="Ajouter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/addbutton_text"
+                android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-black"
+                android:textSize="30sp"
+                android:textColor="#FAFAFA" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:id="@+id/addbutton_overline">
+
+                <View
+                    android:id="@+id/addbutton_overline_space"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="38dp" />
+
+                <View
+                    android:id="@+id/addbutton_overline_gradient"
+                    android:background="@drawable/overline_gradient"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="6dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="60dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/id_cancelButton" />
+            android:id="@+id/cancelbutton"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:text="Retour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cancelbutton_text"
+                android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-black"
+                android:textSize="30sp"
+                android:textColor="#FAFAFA" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:id="@+id/cancelbutton_overline">
+
+                <View
+                    android:id="@+id/cancelbutton_overline_space"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="38dp" />
+
+                <View
+                    android:id="@+id/cancelbutton_overline_gradient"
+                    android:layout_width="60dp"
+                    android:background="@drawable/overline_gradient"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="6dp"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+        </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

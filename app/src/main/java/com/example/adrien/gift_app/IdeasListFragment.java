@@ -24,7 +24,7 @@ public class IdeasListFragment extends Fragment {
 
     private DatabaseReference mDatabase;
     private FirebaseUser user;
-    IdeasAdapter adapter;
+    private IdeasAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +40,8 @@ public class IdeasListFragment extends Fragment {
         SearchView sv = (SearchView)view.findViewById(R.id.id_searchview_ideas);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
+
+        Log.d("IdeasFormFragment", "Je suis dans le fragment des idées");
 
         // Display Ideas list and sorted by title
 
@@ -96,5 +98,7 @@ public class IdeasListFragment extends Fragment {
             }
         });
     }
+
+
 }
 
