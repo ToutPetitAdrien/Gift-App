@@ -1,6 +1,8 @@
 package com.example.adrien.gift_app;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
@@ -56,6 +58,7 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
         TextView tvUrl = (TextView)convertView.findViewById(R.id.cardidea_info_url_text);
         TextView tvPrice = (TextView)convertView.findViewById(R.id.cardidea_info_price_text);
         ImageView imageViewIcon = (ImageView)convertView.findViewById(R.id.cardidea_photo_icon);
+        ImageView crossButton = (ImageView)convertView.findViewById(R.id.cardidea_cross);
 
 
         if(!(idea.getPhoto().equals("empty"))){
@@ -76,6 +79,27 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
         tvRecipient.setText(idea.getRecipient());
         tvPrice.setText(""+idea.getPrice());
 
+        crossButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                idea.removeFromFirebase(mDatabase);
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                break;
+                        }
+                    }
+                };
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Etes-vous sûr de vouloir supprimer l'évènement ?").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
+            }
+        });
         return convertView;
     }
 

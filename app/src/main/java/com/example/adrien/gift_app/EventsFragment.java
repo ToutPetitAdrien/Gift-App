@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -43,15 +42,12 @@ public class EventsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        // Variables Global Initalization
-
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        final TextView create_event = (TextView) view.findViewById(R.id.button_create_event);
-        final ListView listView = (ListView) view.findViewById(R.id.id_ListView_Events);
-        final RelativeLayout newbutton = (RelativeLayout) view.findViewById(R.id.newbutton);
 
-        // Manage event creation
+        final TextView create_event = (TextView) view.findViewById(R.id.button_create_event);
+        final ListView listView = (ListView) view.findViewById(R.id.listevents);
+        final RelativeLayout newbutton = (RelativeLayout) view.findViewById(R.id.newbutton);
 
         create_event.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +55,7 @@ public class EventsFragment extends Fragment {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction fragmentTransaction  = fm.beginTransaction();
                 Fragment addEventFragment = new EventsFormFragment();
-                fragmentTransaction.replace(R.id.id_fragment_addEvents, addEventFragment);
+                fragmentTransaction.replace(R.id.fragment_eventsform_frame, addEventFragment);
                 fragmentTransaction.commit();
                 newbutton.setVisibility(View.GONE);
             }

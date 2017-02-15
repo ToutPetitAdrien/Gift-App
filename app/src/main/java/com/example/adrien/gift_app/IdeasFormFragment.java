@@ -36,6 +36,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.Calendar;
 
 
 public class IdeasFormFragment extends Fragment {
@@ -99,6 +100,9 @@ public class IdeasFormFragment extends Fragment {
 
         final ArrayAdapter<String> autoComplete = new ArrayAdapter<>(this.getContext(),android.R.layout.simple_list_item_1);
 
+        Calendar calendar = Calendar.getInstance();
+        final int currentIntegerDate = calendar.get(Calendar.DAY_OF_MONTH) + 100*calendar.get(Calendar.MONTH) + 10000*calendar.get(Calendar.YEAR);
+
         textForWhen.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -106,7 +110,7 @@ public class IdeasFormFragment extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot suggestionSnapshot : dataSnapshot.getChildren()){
-                            if(user.getUid().equals(suggestionSnapshot.getValue(Event.class).getCreatedBy())){
+                            if(user.getUid().equals(suggestionSnapshot.getValue(Event.class).getCreatedBy())&& suggestionSnapshot.getValue(Event.class).getIntegerdate() > currentIntegerDate){
                                 String suggestion = suggestionSnapshot.getValue(Event.class).getTitle();
                                 autoComplete.add(suggestion);
                             }

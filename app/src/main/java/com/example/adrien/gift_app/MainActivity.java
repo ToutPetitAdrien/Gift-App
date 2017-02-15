@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
         final LinearLayout eventButton = (LinearLayout)findViewById(R.id.navbar_event);
         final LinearLayout addIdeasButton = (LinearLayout)findViewById(R.id.navbar_addideas);
         final LinearLayout ideasButton = (LinearLayout)findViewById(R.id.navbar_idea);
@@ -40,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createFragment("event", R.id.id_frame);
 
+                createFragment("event", R.id.id_frame);
                 eventButtonUnderline.setVisibility(View.VISIBLE);
                 addIdeasButtonUnderline.setVisibility(View.INVISIBLE);
                 ideasButtonUnderline.setVisibility(View.INVISIBLE);
@@ -51,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         addIdeasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createFragment("addidea", R.id.id_frame);
 
+                createFragment("addidea", R.id.id_frame);
                 eventButtonUnderline.setVisibility(View.INVISIBLE);
                 addIdeasButtonUnderline.setVisibility(View.VISIBLE);
                 ideasButtonUnderline.setVisibility(View.INVISIBLE);
@@ -62,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         ideasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createFragment("idea", R.id.id_frame);
 
+                createFragment("idea", R.id.id_frame);
                 eventButtonUnderline.setVisibility(View.INVISIBLE);
                 addIdeasButtonUnderline.setVisibility(View.INVISIBLE);
                 ideasButtonUnderline.setVisibility(View.VISIBLE);

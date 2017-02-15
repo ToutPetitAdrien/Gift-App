@@ -99,7 +99,7 @@ public class EventsFormFragment extends Fragment {
         cancel_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.id_fragment_addEvents)).commit();
+                getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.fragment_eventsform_frame)).commit();
             }
         });
     }

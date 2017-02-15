@@ -101,4 +101,8 @@ public class Idea {
 
         mDatabase.updateChildren(childUpdates);
     }
+
+    public void removeFromFirebase(DatabaseReference mDatabase){
+        mDatabase.child("ideas").child(this.key).removeValue();
+    }
 }
