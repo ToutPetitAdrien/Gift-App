@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             case "addidea": Fragment newAddIdeasFragment = new IdeasFormFragment();
                 fragmentTransaction.replace(id, newAddIdeasFragment);
                 break;
-            case "idea": Fragment newIdeasFragment = new IdeasListFragment();
+            case "idea": Fragment newIdeasFragment = new IdeasFragment();
                 fragmentTransaction.replace(id, newIdeasFragment);
                 break;
         }

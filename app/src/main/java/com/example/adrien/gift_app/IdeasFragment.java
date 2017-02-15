@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-public class IdeasListFragment extends Fragment {
+public class IdeasFragment extends Fragment {
 
     private DatabaseReference mDatabase;
     private FirebaseUser user;
@@ -30,7 +30,7 @@ public class IdeasListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.ideaslist_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_ideas, container, false);
         return view;
     }
 
@@ -41,23 +41,19 @@ public class IdeasListFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        Log.d("IdeasFormFragment", "Je suis dans le fragment des idées");
-
         // Display Ideas list and sorted by title
-
         ArrayList<Idea> arrayOfIdeas = new ArrayList<Idea>();
         adapter = new IdeasAdapter(this.getContext(), arrayOfIdeas);
         final ListView listView = (ListView)view.findViewById(R.id.id_listview_ideas);
         listView.setAdapter(adapter);
-        Query ideasSortedByDate = mDatabase.child("ideas").orderByChild("title");
+        Query ideasSortedByDate = mDatabase.child("ideas").orderByChild("title"); //Sort ideas by title
 
         ideasSortedByDate.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Idea newIdea = dataSnapshot.getValue(Idea.class);
                 newIdea.setKey(dataSnapshot.getKey());
-
-                if(user.getUid().equals(newIdea.getCreatedBy())){
+                if(user.getUid().equals(newIdea.getCreatedBy())){ //Check if the idea belong to the current user
                     adapter.add(newIdea);
                 }
             }
@@ -84,7 +80,6 @@ public class IdeasListFragment extends Fragment {
         });
 
         // Get suggestions when user start writing in Searchview
-
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -98,7 +93,5 @@ public class IdeasListFragment extends Fragment {
             }
         });
     }
-
-
 }
 
