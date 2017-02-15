@@ -44,7 +44,8 @@ public class IdeasFormFragment extends Fragment {
     private FirebaseUser user;
     private static final int REQUEST_IMAGE_CAPTURE = 111;
     private ImageView imagePhoto;
-    private String imageForFirebase = "pas d'image";
+    private String imageForFirebase;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +62,7 @@ public class IdeasFormFragment extends Fragment {
         if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == getActivity().RESULT_OK){
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
+
 
             Matrix matrix = new Matrix();
             matrix.postRotate(90);
@@ -81,6 +83,7 @@ public class IdeasFormFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
+        imageForFirebase = "empty";
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final EditText textTitle = (EditText)view.findViewById(R.id.form_title);
