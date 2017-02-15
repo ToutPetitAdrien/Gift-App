@@ -1,5 +1,6 @@
 package com.example.adrien.gift_app;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.facebook.AccessToken;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        if (AccessToken.getCurrentAccessToken() == null){
+            Intent goToFacebookLoginActivity = new Intent(this, FacebookLoginActivity.class);
+            startActivity(goToFacebookLoginActivity);
+        }
 
         final LinearLayout eventButton = (LinearLayout)findViewById(R.id.navbar_event);
         final LinearLayout addIdeasButton = (LinearLayout)findViewById(R.id.navbar_addideas);

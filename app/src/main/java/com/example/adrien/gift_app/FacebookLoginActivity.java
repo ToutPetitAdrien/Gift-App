@@ -1,6 +1,7 @@
 package com.example.adrien.gift_app;
 
 import android.content.Intent;
+import android.content.pm.PackageInstaller;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -127,6 +129,4 @@ public class FacebookLoginActivity extends AppCompatActivity {
                     }
                 });
     }
-
-
 }
