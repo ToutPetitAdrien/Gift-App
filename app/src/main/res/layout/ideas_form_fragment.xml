@@ -115,7 +115,8 @@
                     android:textColor="#fff"
                     android:hint="Photo"
                     android:textColorHint="#fafafa"
-                    android:textColorHighlight="@android:color/holo_orange_light" />
+                    android:textColorHighlight="@android:color/holo_orange_light"
+                    android:focusable="false"/>
 
                 <ImageView
                     android:layout_width="50dp"

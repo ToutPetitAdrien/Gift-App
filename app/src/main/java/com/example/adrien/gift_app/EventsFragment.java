@@ -63,7 +63,7 @@ public class EventsFragment extends Fragment {
         ArrayList<Event> arrayOfEvents = new ArrayList<Event>();
         adapter = new EventsAdapter(this.getContext(), arrayOfEvents);
         listView.setAdapter(adapter); //give the list of Event to the adapter
-        final int currentIntegerDate = calendar.get(Calendar.DAY_OF_MONTH) + 100*calendar.get(Calendar.MONTH) + 10000*calendar.get(Calendar.YEAR); // int to represent current date
+        final int currentIntegerDate = calendar.get(Calendar.DAY_OF_MONTH) + 100*calendar.get(Calendar.MONTH) + 10000*calendar.get(Calendar.YEAR); // integer to represent current date
         Query eventsSortedByDate = mDatabase.child("events").orderByChild("integerdate"); //Order event with the most recent on the top
 
         eventsSortedByDate.addChildEventListener(new ChildEventListener() {

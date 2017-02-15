@@ -3,42 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_734ca38f3273030abcea0ca23ddc0d4560269d93\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_534755d538005cfbde57c15f05e76d722011c21c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_f0fab1b2947c3fa7b47e400dff9f81a15f551007\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8a372c4191f80489770a231f7be4820b204b886a">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-25.0.0_60db7c52dd280bcf6eac6d8fa13fb865f95ff421\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -72,15 +36,6 @@
         revision="25.0.2"
         sha1="25d3f8a6fbd6b71775121d47e0cb33d6d5d65572">
         <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_831136d4e849e020fd9d94874c1555b2cd5cd47f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_71e3fdca491dacd2299cad427e065948815c9253\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -120,33 +75,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_3b0bdbde6035981efe53e33de7cb59d5ec27308a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_1db14cd291a578396ad16d837b326745797f01c6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_d81cafa31efe73baeafc68e4860d4679ea57127a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -174,21 +102,147 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_1fc89aec326ba12b172bbce987825fdb318074c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
         <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_c137e50a4aa12184c711cc26328ffe840d2063e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_78a32a56d59c8903812b7e06fe61b29fc74093ef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.19.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c6047a34af07d6ec4e950ba1dc70ce23ac65ecaa">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.19.0_68faabeda9debb772afb4263084f5fd114945e35\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_213f8befcadfa3c9675cc59be9a7452a288e52c0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3951dc76683250fd8efbf000769dc6ffdb85178f">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_973041c85bf0c3d466640745618cb187c00cea04\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_055f51bc30e3e3649c964f623b6a8b0063e5a55f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_49a5ad145fac89b245288d3facd4a26bfc58c68f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_734ca38f3273030abcea0ca23ddc0d4560269d93\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_534755d538005cfbde57c15f05e76d722011c21c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_f0fab1b2947c3fa7b47e400dff9f81a15f551007\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-25.0.0_60db7c52dd280bcf6eac6d8fa13fb865f95ff421\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_71e3fdca491dacd2299cad427e065948815c9253\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_3b0bdbde6035981efe53e33de7cb59d5ec27308a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_1db14cd291a578396ad16d837b326745797f01c6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_d81cafa31efe73baeafc68e4860d4679ea57127a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_1fc89aec326ba12b172bbce987825fdb318074c7\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -228,84 +282,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_78a32a56d59c8903812b7e06fe61b29fc74093ef\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
         <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_cf319d72dc1a4929714e440c07834cc4ab029c9c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.19.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c6047a34af07d6ec4e950ba1dc70ce23ac65ecaa">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.19.0_68faabeda9debb772afb4263084f5fd114945e35\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.0.1_2f049e197b09fd70747c820acd229076553e84b0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_3a138199d7264275b9f0d13720d7148202250934\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_213f8befcadfa3c9675cc59be9a7452a288e52c0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3951dc76683250fd8efbf000769dc6ffdb85178f">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_973041c85bf0c3d466640745618cb187c00cea04\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_055f51bc30e3e3649c964f623b6a8b0063e5a55f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
-        <dex dex="E:\Documents\Projets\android-project\Gift-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_49a5ad145fac89b245288d3facd4a26bfc58c68f\classes.dex" />
     </item>
 
 </items>

@@ -1,10 +1,7 @@
 package com.example.adrien.gift_app;
 
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +11,7 @@ public class Idea {
     private String title;
     private int price;
     private String url;
-    private String photo;
+    private String photo = "empty";
     private String recipient;
     private String createdBy;
     private String forWhen;
