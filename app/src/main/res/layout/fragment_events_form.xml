@@ -46,7 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addbutton"
-            android:layout_marginTop="20dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp">
 
@@ -96,9 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cancelbutton"
-            android:layout_marginBottom="20dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp">
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:text="Retour"
