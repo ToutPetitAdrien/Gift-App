@@ -101,7 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/form_when"
-                    android:hint="Pour quand ? (Double click pour la suggestion)"
+                    android:hint="Pour quand ? (Double click)"
                     android:textColorHint="#fafafa"
                     android:textColor="#fff"
                     android:textColorHighlight="@android:color/holo_orange_light" />
