@@ -88,7 +88,7 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
                     }
                 };
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("Etes-vous sûr de vouloir supprimer l'évènement ?").setPositiveButton("Yes", dialogClickListener)
+                builder.setMessage("Etes-vous sûr de vouloir supprimer l'idée ?").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
             }
         });
