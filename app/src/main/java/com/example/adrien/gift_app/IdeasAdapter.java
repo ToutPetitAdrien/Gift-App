@@ -16,6 +16,8 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -78,6 +80,7 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
                                 idea.removeFromFirebase(mDatabase);
+                                Toast.makeText(getContext(),"Idée supprimée", Toast.LENGTH_SHORT).show();
                                 break;
                             case DialogInterface.BUTTON_NEGATIVE:
                                 break;
@@ -85,7 +88,7 @@ public class IdeasAdapter extends ArrayAdapter<Idea> implements Filterable {
                     }
                 };
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("Etes-vous sûr de vouloir supprimer l'évènement ?").setPositiveButton("Yes", dialogClickListener)
+                builder.setMessage("Etes-vous sûr de vouloir supprimer l'idée ?").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
             }
         });

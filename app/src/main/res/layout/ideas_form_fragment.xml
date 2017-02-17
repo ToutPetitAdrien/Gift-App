@@ -73,7 +73,9 @@
                 android:orientation="vertical"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/form"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -101,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/form_when"
-                    android:hint="Pour quand ?"
+                    android:hint="Pour quand ? (Double click)"
                     android:textColorHint="#fafafa"
                     android:textColor="#fff"
                     android:textColorHighlight="@android:color/holo_orange_light" />

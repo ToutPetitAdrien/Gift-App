@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 import com.google.firebase.database.DatabaseReference;
@@ -50,6 +52,7 @@ public class EventsAdapter extends ArrayAdapter<Event> {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
                                 event.removeFromFirebase(mDatabase); //remove item from database
+                                Toast.makeText(getContext(),"Idée supprimée", Toast.LENGTH_SHORT).show();
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
